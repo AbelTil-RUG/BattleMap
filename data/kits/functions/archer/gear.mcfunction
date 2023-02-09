@@ -12,7 +12,7 @@ tag @s add archer
 # add armor
 
 # add weapons
-
+give @s bow
 # add attributes
 
 # add restockables
