@@ -1,0 +1,1 @@
+summon minecraft:armor_stand ~ ~ ~ {Invisible:1b,Marker:1b,NoBasePlate:1b,Small:1b,DisabledSlots:0,Invulnerable:1b,NoGravity:1b,Tags:["deathmatch"],Team:armor_stand}

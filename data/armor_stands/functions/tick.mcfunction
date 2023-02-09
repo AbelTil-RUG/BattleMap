@@ -1,0 +1,5 @@
+function armor_stands:mana_well/mana_pickup
+function armor_stands:control_point/show_owner
+
+function armor_stands:control_point/calculate_in_range
+function armor_stands:control_point/logic/process_capture

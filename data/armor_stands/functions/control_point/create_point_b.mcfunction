@@ -1,0 +1,1 @@
+summon minecraft:armor_stand ~ ~ ~ {Invisible:1b,Marker:1b,NoBasePlate:1b,Small:1b,DisabledSlots:0,CustomName:'[{"text":"Point B"}]',CustomNameVisible:1b,Glowing:1b,Invulnerable:1b,NoAI:1b,NoGravity:1b,Tags:["control_point","control_point_b","unselected","uncaptured"],Team:armor_stand}

@@ -1,0 +1,2 @@
+summon minecraft:armor_stand ~ ~ ~ {Invisible:1b,Marker:1b,NoBasePlate:1b,Small:1b,DisabledSlots:0,CustomName:'[{"text":"Lobby","color":"yellow"}]',CustomNameVisible:1b,Invulnerable:1b,NoAI:1b,NoGravity:1b,Tags:["lobby","spawn_point"],Team:armor_stand}
+tp @e[tag=spawn_point,limit=1,sort=nearest] ~ ~ ~ ~ ~

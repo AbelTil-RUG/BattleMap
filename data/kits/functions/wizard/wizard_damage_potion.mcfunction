@@ -1,0 +1,3 @@
+give @a[tag=wizard,tag=in_arena,scores={wizard_damage_potion=0},nbt=!{Inventory:[{id:"minecraft:splash_potion",tag:{Tags:["damage_potion"]}}]}] splash_potion{CustomPotionColor:6182241,Tags:["damage_potion"],display:{Name:'[{"text":"Wizards Damage Potion","italic":false}]',Lore:['[{"text":"Almost enough to kill a person."}]']},HideFlags:32,CustomPotionEffects:[{Id:7,Amplifier:1,ShowParticles:0b,ShowIcon:0b}]} 1
+scoreboard players set @a[tag=wizard,tag=in_arena,scores={wizard_damage_potion=0}] wizard_damage_potion 60
+execute as @a[tag=wizard,tag=in_arena,nbt=!{Inventory:[{id:"minecraft:splash_potion",tag:{Tags:["damage_potion"]}}]}] run scoreboard players remove @s wizard_damage_potion 1

@@ -1,0 +1,7 @@
+{
+    "values": [
+        "battlemap:tick",
+        "kits:tick",
+        "armor_stands:tick"
+    ]
+}
