@@ -16,7 +16,6 @@ Objective types
     Deathmatch - kill the oposite team and make x kills 
         - scoreboard for team kills
         - end if a team has x kills
-        scoreboard objectives add RedKills killedByTeam.red
 
     King of the hill - hold a central point for x ticks
         - capturing the central point takes x ticks and goes faster if more team members are on it.
@@ -44,6 +43,5 @@ if player died, re give the kit
 
 
 ticket system
+death_match system
 working out kits
-spawning and respawning
-setting up triggers

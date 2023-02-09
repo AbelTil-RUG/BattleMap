@@ -16,10 +16,7 @@ item replace entity @s armor.chest with leather_chestplate{Unbreakable:true}
 # add weapons
 
 
-effect give @s jump_boost 600 1 true
-effect give @s speed 600 2 true
-
+effect give @s jump_boost 3600 1 true
+attribute @s generic.movement_speed base set 0.13
 
 attribute @s generic.max_health base set 14
-effect give @s absorption 1 2
-effect give @s instant_damage 1 2
