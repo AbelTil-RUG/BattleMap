@@ -1,5 +1,5 @@
 # clear all items
-clear @s
+clear @s #kits:kit_items
 
 # clear effects
 effect clear @s
