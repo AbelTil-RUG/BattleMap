@@ -2,6 +2,10 @@
 ## POINT A 
 ##################################################################################################################
 
+# calculate how many are in range
+execute at @e[tag=control_point,tag=control_point_a,tag=active] store result score a_red in_range if entity @e[team=Red,distance=..4]
+execute at @e[tag=control_point,tag=control_point_a,tag=active] store result score a_blue in_range if entity @e[team=Blue,distance=..4]
+
 # process capping unless enemy is in area
 execute at @e[tag=control_point_a,tag=active] store result bossbar point_a value unless entity @a[team=Blue, distance=..4] if score point_a cap_state > min_tick_point_a settings run scoreboard players operation point_a cap_state -= a_red in_range
 execute at @e[tag=control_point_a,tag=active] store result bossbar point_a value unless entity @a[team=Red, distance=..4] if score point_a cap_state < max_tick_point_a settings run scoreboard players operation point_a cap_state += a_blue in_range
@@ -34,6 +38,10 @@ execute at @e[tag=control_point_a,tag=active,tag=captured_red] if score point_a 
 ## POINT B 
 ##################################################################################################################
 
+# calculate how many are in range
+execute at @e[tag=control_point,tag=control_point_b,tag=active] store result score b_red in_range if entity @e[team=Red,distance=..4]
+execute at @e[tag=control_point,tag=control_point_b,tag=active] store result score b_blue in_range if entity @e[team=Blue,distance=..4]
+
 # process capping unless enemy is in area
 execute at @e[tag=control_point_b,tag=active] store result bossbar point_b value unless entity @a[team=Blue, distance=..4] if score point_b cap_state > min_tick_point_b settings run scoreboard players operation point_b cap_state -= b_red in_range
 execute at @e[tag=control_point_b,tag=active] store result bossbar point_b value unless entity @a[team=Red, distance=..4] if score point_b cap_state < max_tick_point_b settings run scoreboard players operation point_b cap_state += b_blue in_range
@@ -65,6 +73,10 @@ execute at @e[tag=control_point_b,tag=active,tag=captured_red] if score point_b 
 ##################################################################################################################
 ## POINT C 
 ##################################################################################################################
+
+# calculate how many are in range
+execute at @e[tag=control_point,tag=control_point_c,tag=active] store result score c_red in_range if entity @e[team=Red,distance=..4]
+execute at @e[tag=control_point,tag=control_point_c,tag=active] store result score c_blue in_range if entity @e[team=Blue,distance=..4]
 
 # process capping unless enemy is in area
 execute at @e[tag=control_point_c,tag=active] store result bossbar point_c value unless entity @a[team=Blue, distance=..4] if score point_c cap_state > min_tick_point_c settings run scoreboard players operation point_c cap_state -= c_red in_range

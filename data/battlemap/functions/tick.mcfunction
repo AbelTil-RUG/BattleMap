@@ -1,6 +1,3 @@
-## Death detection
-function battlemap:kill_handlers/register_death
-
 ## Remove items and arrows
 kill @e[type=arrow,nbt={inGround:true}]
 kill @e[type=minecraft:item,tag=!do_not_kill]
@@ -22,11 +19,16 @@ scoreboard players set @a[scores={to_arena_trigger=1..},tag=in_arena] to_arena_t
 scoreboard players set @a[scores={to_arena_trigger=1..,select_kit_trigger=0}] to_arena_trigger 0 
 
 ## Handle map features
-function armor_stands:mana_well/mana_pickup
-function armor_stands:control_point/show_owner
+# mana well
+execute if entity @e[tag=mana_well,tag=active] run function armor_stands:mana_well/mana_pickup
 
-function armor_stands:control_point/calculate_in_range
-function armor_stands:control_point/logic/process_capture
+# control point
+execute if entity @e[tag=control_point,tag=active] run function armor_stands:control_point/show_owner
+execute if entity @e[tag=control_point,tag=active] run function armor_stands:control_point/logic/process_capture
+execute if entity @e[tag=control_point,tag=active] run function armor_stands:control_point/logic/process_tickets
+
+# death match
+execute if entity @e[tag=death_match,tag=active] run function armor_stands:death_match/process_death
 
 ## Handle kit specific things
 function kits:archer/arrow
@@ -44,3 +46,6 @@ function kits:tank/ultimate
 
 function kits:scout/ultimate
 
+## Death detection
+# should be handled after map features
+function battlemap:kill_handlers/register_death

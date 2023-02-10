@@ -1,4 +1,15 @@
-## trigger scoreboards
+## Teams
+team add Red 
+team modify Red color red
+team join Red Red
+
+team add Blue
+team modify Blue color aqua
+team join Blue Blue
+
+team add armor_stand
+
+## Triggers
 scoreboard objectives add to_arena_trigger trigger
 scoreboard objectives add select_kit_trigger trigger
 scoreboard objectives add to_lobby_trigger trigger
@@ -20,6 +31,9 @@ function armor_stands:mana_well/mana_spawn
 scoreboard objectives add in_range dummy
 scoreboard objectives add cap_state dummy
 scoreboard objectives add tickets dummy
+
+# Death Match
+scoreboard objectives add TeamKills dummy
 
 ## Kits
 # scoreboards for replenishing consumables
