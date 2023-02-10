@@ -10,11 +10,14 @@ kill @e[type=minecraft:item,tag=!do_not_kill]
 scoreboard players enable @a to_lobby_trigger
 scoreboard players enable @a to_arena_trigger
 scoreboard players enable @a select_kit_trigger
+scoreboard players enable @a team_trigger
 
 # execute function if triggered
 execute as @a[scores={to_lobby_trigger=1..}] run function battlemap:to_lobby
 execute as @a[scores={to_arena_trigger=1..,select_kit_trigger=1..},tag=!in_arena,team=Blue] run function battlemap:to_arena
 execute as @a[scores={to_arena_trigger=1..,select_kit_trigger=1..},tag=!in_arena,team=Red] run function battlemap:to_arena
+execute as @a[scores={team_trigger=1},tag=!in_arena] run team join Blue
+execute as @a[scores={team_trigger=2},tag=!in_arena] run team join Red
 
 # tell why not allowed if triggered
 tellraw @a[scores={to_arena_trigger=1..},tag=in_arena] {"text": "You are already in the arena."}
@@ -24,7 +27,8 @@ tellraw @a[scores={to_arena_trigger=1..},team=!Blue,team=!Red] {"text": "Please 
 # reset trigger if not allowed
 scoreboard players set @a[scores={to_arena_trigger=1..},tag=in_arena] to_arena_trigger 0
 scoreboard players set @a[scores={to_arena_trigger=1..,select_kit_trigger=0}] to_arena_trigger 0 
-scoreboard players set @a[scores={to_arena_trigger=1..},team=!Blue,team=!Red] to_arena_trigger 0 
+scoreboard players set @a[scores={to_arena_trigger=1..},team=!Blue,team=!Red] to_arena_trigger 0
+scoreboard players set @a team_trigger 0
 
 ## Handle map features
 # mana well
@@ -37,6 +41,9 @@ execute if entity @e[tag=control_point,tag=active] run function armor_stands:con
 
 # death match
 execute if entity @e[tag=death_match,tag=active] run function armor_stands:death_match/process_death
+
+## Win detection
+function battlemap:win_handler/win_detector
 
 ## Handle kit specific things
 function kits:archer/arrow

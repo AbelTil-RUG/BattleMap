@@ -13,6 +13,7 @@ team add armor_stand
 scoreboard objectives add to_arena_trigger trigger
 scoreboard objectives add select_kit_trigger trigger
 scoreboard objectives add to_lobby_trigger trigger
+scoreboard objectives add team_trigger trigger
 
 scoreboard objectives add died deathCount
 scoreboard objectives add health health
@@ -34,6 +35,11 @@ scoreboard objectives add tickets dummy
 
 # Death Match
 scoreboard objectives add TeamKills dummy
+
+playsound ui.toast.challenge_complete
+
+# title setting
+title @a times 20 60 20
 
 ## Kits
 # scoreboards for replenishing consumables
