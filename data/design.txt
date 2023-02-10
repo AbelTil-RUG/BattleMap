@@ -41,7 +41,6 @@ Features for each map
 When falling off the map, kill player with instant damage effect
 if player died, re give the kit
 
-
-ticket system
-death_match system
+particles for ultimates
+capture the flag (armor_stand with particles as flag)
 working out kits

@@ -1,22 +1,30 @@
+## Death detection
+function battlemap:kill_handlers/register_death
+
 ## Remove items and arrows
 kill @e[type=arrow,nbt={inGround:true}]
 kill @e[type=minecraft:item,tag=!do_not_kill]
 
 ## Enable triggers (functions that anyone can run, also non OP players)
+# allow anyone to use these triggers
 scoreboard players enable @a to_lobby_trigger
-scoreboard players reset @a[team=!Blue,team=!Red] to_arena_trigger
-scoreboard players enable @a[team=Blue] to_arena_trigger
-scoreboard players enable @a[team=Red] to_arena_trigger
-scoreboard players enable @a[team=Blue] select_kit_trigger
-scoreboard players enable @a[team=Red] select_kit_trigger
+scoreboard players enable @a to_arena_trigger
+scoreboard players enable @a select_kit_trigger
 
+# execute function if triggered
 execute as @a[scores={to_lobby_trigger=1..}] run function battlemap:to_lobby
-execute as @a[scores={to_arena_trigger=1..,select_kit_trigger=1..},tag=!in_arena] run function battlemap:to_arena
+execute as @a[scores={to_arena_trigger=1..,select_kit_trigger=1..},tag=!in_arena,team=Blue] run function battlemap:to_arena
+execute as @a[scores={to_arena_trigger=1..,select_kit_trigger=1..},tag=!in_arena,team=Red] run function battlemap:to_arena
 
+# tell why not allowed if triggered
 tellraw @a[scores={to_arena_trigger=1..},tag=in_arena] {"text": "You are already in the arena."}
-tellraw @a[scores={to_arena_trigger=1..,select_kit_trigger=0}] {"text": "Please select a kit first."}
+tellraw @a[scores={to_arena_trigger=1..,=0}] {"text": "Please select a kit first."}
+tellraw @a[scores={to_arena_trigger=1..},team=!Blue,team=!Red] {"text": "Please select a Team first."}
+
+# reset trigger if not allowed
 scoreboard players set @a[scores={to_arena_trigger=1..},tag=in_arena] to_arena_trigger 0
 scoreboard players set @a[scores={to_arena_trigger=1..,select_kit_trigger=0}] to_arena_trigger 0 
+scoreboard players set @a[scores={to_arena_trigger=1..},team=!Blue,team=!Red] to_arena_trigger 0 
 
 ## Handle map features
 # mana well
@@ -46,6 +54,6 @@ function kits:tank/ultimate
 
 function kits:scout/ultimate
 
-## Death detection
-# should be handled after map features
-function battlemap:kill_handlers/register_death
+function kits:ultimate_particles
+
+scoreboard players set @a[scores={died=1..}] died 0
