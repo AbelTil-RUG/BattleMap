@@ -21,3 +21,26 @@ tellraw @a[scores={to_arena_trigger=1..,select_kit_trigger=0}] {"text": "Please 
 scoreboard players set @a[scores={to_arena_trigger=1..},tag=in_arena] to_arena_trigger 0
 scoreboard players set @a[scores={to_arena_trigger=1..,select_kit_trigger=0}] to_arena_trigger 0 
 
+## Handle map features
+function armor_stands:mana_well/mana_pickup
+function armor_stands:control_point/show_owner
+
+function armor_stands:control_point/calculate_in_range
+function armor_stands:control_point/logic/process_capture
+
+## Handle kit specific things
+function kits:archer/arrow
+function kits:archer/ultimate
+
+function kits:bomber/bob
+function kits:bomber/ultimate
+
+function kits:wizard/damage_potion
+function kits:wizard/heal_potion
+function kits:wizard/speed_potion
+function kits:wizard/ultimate
+
+function kits:tank/ultimate
+
+function kits:scout/ultimate
+

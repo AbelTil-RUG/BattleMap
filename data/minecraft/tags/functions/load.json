@@ -1,7 +1,5 @@
 {
     "values": [
-        "kits:load",
-        "armor_stands:load",
         "battlemap:load"
     ]
 }

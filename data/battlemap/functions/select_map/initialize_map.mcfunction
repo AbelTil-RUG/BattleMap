@@ -1,5 +1,6 @@
 ## control points
-scoreboard players set Red tickets 9600
+scoreboard players operation Red tickets = starting_tickets settings
+scoreboard players operation Blue tickets = starting_tickets settings
 
 bossbar set point_a visible false
 bossbar set point_b visible false
@@ -9,13 +10,13 @@ bossbar set point_a players @a
 bossbar set point_b players @a
 bossbar set point_c players @a
 
-bossbar set point_a max 200
-bossbar set point_b max 200
-bossbar set point_c max 200
+execute store result bossbar point_a max run scoreboard players get max_tick_point_a settings
+execute store result bossbar point_b max run scoreboard players get max_tick_point_b settings
+execute store result bossbar point_c max run scoreboard players get max_tick_point_c settings
 
-execute store result bossbar point_a value run scoreboard players set point_a cap_state 100
-execute store result bossbar point_b value run scoreboard players set point_b cap_state 100
-execute store result bossbar point_c value run scoreboard players set point_c cap_state 100
+execute store result bossbar point_a value run scoreboard players operation point_a cap_state = mid_tick_point_a settings
+execute store result bossbar point_b value run scoreboard players operation point_b cap_state = mid_tick_point_b settings
+execute store result bossbar point_c value run scoreboard players operation point_c cap_state = mid_tick_point_c settings
 
 bossbar set point_a name {"text":"Point A","color":"white"}
 bossbar set point_b name {"text":"Point B","color":"white"}

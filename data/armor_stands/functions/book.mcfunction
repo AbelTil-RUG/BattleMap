@@ -1,1 +1,0 @@
-# book with all functions
