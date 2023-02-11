@@ -1,2 +1,2 @@
-item replace entity @a[tag=archer,tag=in_arena,level=100,nbt=!{Inventory:[{tag:{Tags:["ultimate_item"]}}]}] weapon.offhand with tipped_arrow{CustomPotionColor:2038555,Tags:["ultimate_item"],display:{Name:'[{"text":"Tipped Arrow"}]'},CustomPotionEffects:[{Id:15,Duration:100,Amplifier:0},{Id:7,Duration:1,Amplifier:2}]} 2
-experience set @a[tag=archer,tag=in_arena,level=100] 0 levels
+item replace entity @a[tag=archer,tag=in_arena,level=100..,nbt=!{Inventory:[{tag:{Tags:["ultimate_item"]}}]}] weapon.offhand with tipped_arrow{CustomPotionColor:2038555,Tags:["ultimate_item"],display:{Name:'[{"text":"Tipped Arrow"}]'},CustomPotionEffects:[{Id:15,Duration:100,Amplifier:0},{Id:7,Duration:1,Amplifier:2}]} 2
+experience set @a[tag=archer,tag=in_arena,level=100..] 0 levels

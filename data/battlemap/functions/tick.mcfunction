@@ -14,8 +14,8 @@ scoreboard players enable @a team_trigger
 
 # execute function if triggered
 execute as @a[scores={to_lobby_trigger=1..}] run function battlemap:to_lobby
-execute as @a[scores={to_arena_trigger=1..,select_kit_trigger=1..},tag=!in_arena,team=Blue] run function battlemap:to_arena
-execute as @a[scores={to_arena_trigger=1..,select_kit_trigger=1..},tag=!in_arena,team=Red] run function battlemap:to_arena
+execute as @a[scores={to_arena_trigger=1..,select_kit_trigger=1..},tag=!in_arena,team=Blue] if entity @e[tag=active,tag=blue_spawn] run function battlemap:to_arena
+execute as @a[scores={to_arena_trigger=1..,select_kit_trigger=1..},tag=!in_arena,team=Red] if entity @e[tag=active,tag=red_spawn] run function battlemap:to_arena
 execute as @a[scores={team_trigger=1},tag=!in_arena] run team join Blue
 execute as @a[scores={team_trigger=2},tag=!in_arena] run team join Red
 
@@ -26,8 +26,9 @@ tellraw @a[scores={to_arena_trigger=1..},team=!Blue,team=!Red] {"text": "Please 
 
 # reset trigger if not allowed
 scoreboard players set @a[scores={to_arena_trigger=1..},tag=in_arena] to_arena_trigger 0
-scoreboard players set @a[scores={to_arena_trigger=1..,select_kit_trigger=0}] to_arena_trigger 0 
+scoreboard players set @a[scores={to_arena_trigger=1..,select_kit_trigger=0}] to_arena_trigger 0
 scoreboard players set @a[scores={to_arena_trigger=1..},team=!Blue,team=!Red] to_arena_trigger 0
+execute if entity @e[tag=!active] run scoreboard players set @a to_arena_trigger 0
 scoreboard players set @a team_trigger 0
 
 ## Handle map features

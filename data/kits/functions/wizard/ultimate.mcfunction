@@ -4,8 +4,8 @@
 # fully heal and restock items
 # get 40% damage resistance for couple seconds
 
-item replace entity @a[tag=wizard,tag=in_arena,level=100,nbt=!{Inventory:[{tag:{Tags:["ultimate_item"]}}]}] weapon.offhand with totem_of_undying{Tags:["ultimate_item"]}
-experience set @a[tag=wizard,tag=in_arena,level=100] 0 levels
+item replace entity @a[tag=wizard,tag=in_arena,level=100..,nbt=!{Inventory:[{tag:{Tags:["ultimate_item"]}}]}] weapon.offhand with totem_of_undying{Tags:["ultimate_item"]}
+experience set @a[tag=wizard,tag=in_arena,level=100..] 0 levels
 
 execute as @a[scores={used_totem_of_undying=1..}] if predicate battlemap:is_falling at @s run tp @s ~ ~6 ~
 effect give @a[scores={used_totem_of_undying=1..}] slow_falling 3 1

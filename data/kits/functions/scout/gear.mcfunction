@@ -14,9 +14,9 @@ item replace entity @s armor.legs with leather_leggings{Unbreakable:true}
 item replace entity @s armor.chest with leather_chestplate{Unbreakable:true}
 
 # add weapons
-
+give @s wooden_shovel{Unbreakable:1,display:{Name:'[{"text":"Baseball bat","italic":false}]'},Enchantments:[{id:knockback,lvl:1}]} 1
 
 effect give @s jump_boost 3600 1 true
-attribute @s generic.movement_speed base set 0.13
+attribute @s generic.movement_speed base set 0.12
 
 attribute @s generic.max_health base set 14
