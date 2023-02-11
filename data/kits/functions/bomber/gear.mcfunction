@@ -12,10 +12,17 @@ function kits:clear_kit
 tag @s add bomber
 
 # add armour
-item replace entity @s armor.feet with chainmail_boots{Unbreakable:1,Enchantments:[{id:blast_protection,lvl:2}]}
-item replace entity @s armor.legs with chainmail_leggings{Unbreakable:1,Enchantments:[{id:blast_protection,lvl:2}]}
-item replace entity @s armor.chest with chainmail_chestplate{Unbreakable:1,Enchantments:[{id:blast_protection,lvl:2}]}
+item replace entity @s[team=Blue] armor.head with leather_helmet{Unbreakable:1,display:{color:3847130},HideFlags:64} 1
+item replace entity @s[team=Blue] armor.chest with chainmail_chestplate{Unbreakable:1,display:{color:3847130},HideFlags:64,Enchantments:[{id:blast_protection,lvl:3}]} 1
+item replace entity @s[team=Blue] armor.legs with leather_leggings{Unbreakable:1,display:{color:3847130},HideFlags:64,Enchantments:[{id:blast_protection,lvl:3}]} 1
+item replace entity @s[team=Blue] armor.feet with leather_boots{Unbreakable:1,display:{color:3847130},HideFlags:64} 1
+
+item replace entity @s[team=Red] armor.head with leather_helmet{Unbreakable:1,display:{color:11546150},HideFlags:64} 1
+item replace entity @s[team=Red] armor.chest with chainmail_chestplate{Unbreakable:1,display:{color:11546150},HideFlags:64,Enchantments:[{id:blast_protection,lvl:3}]} 1
+item replace entity @s[team=Red] armor.legs with leather_leggings{Unbreakable:1,display:{color:11546150},HideFlags:64,Enchantments:[{id:blast_protection,lvl:3}]} 1
+item replace entity @s[team=Red] armor.feet with leather_boots{Unbreakable:1,display:{color:11546150},HideFlags:64} 1
 # add weapons
+give @p stone_axe{Unbreakable:1}
 
 # add restockables
 scoreboard players set @s bomber_bob 0

@@ -3,22 +3,27 @@
         "leather_boots",
         "leather_chestplate",
         "leather_leggings",
-        "iron_leggings",
-        "iron_boots",
-        "iron_chestplate",
-        "chainmail_boots",
-        "chainmail_chestplate",
-        "chainmail_leggings",
-        "minecraft:bow",
+        "leather_helmet",
+        
+        "bow",
         "arrow",
-        "shield",
-        "blaze_rod",
-        "minecraft:iron_sword",
-        "minecraft:splash_potion",
-        "minecraft:creeper_spawn_egg",
-        "totem_of_undying",
+        "stick",
         "tipped_arrow",
+
+        "chainmail_chestplate",
+        "stone_axe",
+        "creeper_spawn_egg",
+        "trident",
+
+        "iron_chestplate",
+        "iron_shovel",
+        "honey_bottle",
+        
+        "stone_sword",
         "golden_apple",
-        "trident"
+
+        "blaze_rod",
+        "minecraft:splash_potion",
+        "totem_of_undying"
     ]
 }

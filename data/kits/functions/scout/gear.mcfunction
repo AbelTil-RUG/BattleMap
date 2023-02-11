@@ -9,12 +9,16 @@ function kits:clear_kit
 tag @s add scout
 
 # add armour
-item replace entity @s armor.feet with leather_boots{Unbreakable:true}
-item replace entity @s armor.legs with leather_leggings{Unbreakable:true}
-item replace entity @s armor.chest with leather_chestplate{Unbreakable:true}
+item replace entity @s[team=Blue] armor.chest with leather_chestplate{Unbreakable:1,display:{color:16701501},HideFlags:64} 1
+item replace entity @s[team=Blue] armor.legs with leather_leggings{Unbreakable:1,display:{color:3847130},HideFlags:64} 1
+item replace entity @s[team=Blue] armor.feet with leather_boots{Unbreakable:1,display:{color:3847130},HideFlags:64} 1
+
+item replace entity @s[team=Red] armor.chest with leather_chestplate{Unbreakable:1,display:{color:16701501},HideFlags:64} 1
+item replace entity @s[team=Red] armor.legs with leather_leggings{Unbreakable:1,display:{color:11546150},HideFlags:64} 1
+item replace entity @s[team=Red] armor.feet with leather_boots{Unbreakable:1,display:{color:11546150},HideFlags:64} 1
 
 # add weapons
-give @s wooden_shovel{Unbreakable:1,display:{Name:'[{"text":"Baseball bat","italic":false}]'},Enchantments:[{id:knockback,lvl:1}]} 1
+give @p iron_shovel{Unbreakable:1,Enchantments:[{id:knockback,lvl:1}]} 1
 
 effect give @s jump_boost 3600 1 true
 attribute @s generic.movement_speed base set 0.12

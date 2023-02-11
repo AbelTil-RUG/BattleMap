@@ -50,7 +50,7 @@ scoreboard objectives add wizard_speed_potion dummy
 scoreboard objectives add wizard_health_potion dummy
 scoreboard objectives add used_totem_of_undying minecraft.used:totem_of_undying
 scoreboard objectives add used_golden_apple minecraft.used:golden_apple
-scoreboard objectives add used_golden_carrot minecraft.used:golden_carrot
+scoreboard objectives add used_honey_bottle minecraft.used:honey_bottle
 scoreboard objectives add scout_ult_timer dummy
 
 
