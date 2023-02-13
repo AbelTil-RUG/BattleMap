@@ -9,6 +9,7 @@
 
 function kits:clear_kit
 tag @s add wizard
+function kits:clear_ult_item
 
 # add armour
 item replace entity @s[team=Blue] armor.head with leather_helmet{Unbreakable:1,display:{color:3847130},HideFlags:64} 1

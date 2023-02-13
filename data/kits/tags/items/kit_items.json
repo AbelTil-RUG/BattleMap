@@ -8,22 +8,17 @@
         "bow",
         "arrow",
         "stick",
-        "tipped_arrow",
 
         "chainmail_chestplate",
         "stone_axe",
         "creeper_spawn_egg",
-        "trident",
 
         "iron_chestplate",
         "iron_shovel",
-        "honey_bottle",
         
         "stone_sword",
-        "golden_apple",
 
         "blaze_rod",
-        "minecraft:splash_potion",
-        "totem_of_undying"
+        "minecraft:splash_potion"
     ]
 }

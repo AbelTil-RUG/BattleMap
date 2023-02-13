@@ -18,19 +18,23 @@ execute at @e[tag=control_point,tag=control_point_a,tag=active] as @a[tag=scout,
 execute at @e[tag=control_point_a,tag=active] store result bossbar point_a value unless entity @a[team=Blue, distance=..4] if score point_a cap_state > min_tick_point_a settings run scoreboard players operation point_a cap_state -= a_red in_range
 execute at @e[tag=control_point_a,tag=active] store result bossbar point_a value unless entity @a[team=Red, distance=..4] if score point_a cap_state < max_tick_point_a settings run scoreboard players operation point_a cap_state += a_blue in_range
 
-# if captured by team blue, make it blue
+# if captured by team blue
 execute if score point_a cap_state = max_tick_point_a settings run tag @e[tag=control_point_a,tag=uncaptured] remove uncaptured
 execute if score point_a cap_state = max_tick_point_a settings run tag @e[tag=control_point_a,tag=captured_red] remove captured_red
+execute as @e[tag=control_point_a,tag=active,tag=!captured_blue] at @s if score point_a cap_state = max_tick_point_a settings run experience add @a[distance=..4,team=Blue,nbt=!{Inventory:[{tag:{Tags:["ultimate_item"]}}]}] 10 levels
 execute if score point_a cap_state = max_tick_point_a settings run tag @e[tag=control_point_a,tag=!captured_blue] add captured_blue
 execute if score point_a cap_state = max_tick_point_a settings run bossbar set point_a name {"text":"Point A","color":"aqua"}
 execute if score point_a cap_state = max_tick_point_a settings run bossbar set point_a color blue
 
-# if captured by team red, make it red
+
+# if captured by team red
 execute if score point_a cap_state = min_tick_point_a settings run tag @e[tag=control_point_a,tag=uncaptured] remove uncaptured
 execute if score point_a cap_state = min_tick_point_a settings run tag @e[tag=control_point_a,tag=captured_blue] remove captured_blue
+execute as @e[tag=control_point_a,tag=active,tag=!captured_red] at @s if score point_a cap_state = min_tick_point_a settings run experience add @a[distance=..4,team=Red,nbt=!{Inventory:[{tag:{Tags:["ultimate_item"]}}]}] 10 levels
 execute if score point_a cap_state = min_tick_point_a settings run tag @e[tag=control_point_a,tag=!captured_red] add captured_red
 execute if score point_a cap_state = min_tick_point_a settings run bossbar set point_a name {"text":"Point A","color":"red"}
 execute if score point_a cap_state = min_tick_point_a settings run bossbar set point_a color red
+
 
 # if leaving uncaptured, go to neutral
 execute at @e[tag=control_point_a,tag=active,tag=uncaptured] if score point_a cap_state > mid_tick_point_a settings unless entity @a[distance=..4] run scoreboard players remove point_a cap_state 1
@@ -65,6 +69,7 @@ execute at @e[tag=control_point_b,tag=active] store result bossbar point_b value
 # if captured by team blue, make it blue
 execute if score point_b cap_state = max_tick_point_b settings run tag @e[tag=control_point_b,tag=uncaptured] remove uncaptured
 execute if score point_b cap_state = max_tick_point_b settings run tag @e[tag=control_point_b,tag=captured_red] remove captured_red
+execute as @e[tag=control_point_b,tag=active,tag=!captured_blue] at @s if score point_b cap_state = max_tick_point_b settings run experience add @a[distance=..4,team=Blue,nbt=!{Inventory:[{tag:{Tags:["ultimate_item"]}}]}] 10 levels
 execute if score point_b cap_state = max_tick_point_b settings run tag @e[tag=control_point_b,tag=!captured_blue] add captured_blue
 execute if score point_b cap_state = max_tick_point_b settings run bossbar set point_b name {"text":"Point B","color":"aqua"}
 execute if score point_b cap_state = max_tick_point_b settings run bossbar set point_b color blue
@@ -72,6 +77,7 @@ execute if score point_b cap_state = max_tick_point_b settings run bossbar set p
 # if captured by team red, make it red
 execute if score point_b cap_state = min_tick_point_b settings run tag @e[tag=control_point_b,tag=uncaptured] remove uncaptured
 execute if score point_b cap_state = min_tick_point_b settings run tag @e[tag=control_point_b,tag=captured_blue] remove captured_blue
+execute as @e[tag=control_point_b,tag=active,tag=!captured_red] at @s if score point_b cap_state = min_tick_point_b settings run experience add @a[distance=..4,team=Red,nbt=!{Inventory:[{tag:{Tags:["ultimate_item"]}}]}] 10 levels
 execute if score point_b cap_state = min_tick_point_b settings run tag @e[tag=control_point_b,tag=!captured_red] add captured_red
 execute if score point_b cap_state = min_tick_point_b settings run bossbar set point_b name {"text":"Point B","color":"red"}
 execute if score point_b cap_state = min_tick_point_b settings run bossbar set point_b color red
@@ -109,6 +115,7 @@ execute at @e[tag=control_point_c,tag=active] store result bossbar point_c value
 # if captured by team blue, make it blue
 execute if score point_c cap_state = max_tick_point_c settings run tag @e[tag=control_point_c,tag=uncaptured] remove uncaptured
 execute if score point_c cap_state = max_tick_point_c settings run tag @e[tag=control_point_c,tag=captured_red] remove captured_red
+execute as @e[tag=control_point_c,tag=active,tag=!captured_blue] at @s if score point_c cap_state = max_tick_point_c settings run experience add @a[distance=..4,team=Blue,nbt=!{Inventory:[{tag:{Tags:["ultimate_item"]}}]}] 10 levels
 execute if score point_c cap_state = max_tick_point_c settings run tag @e[tag=control_point_c,tag=!captured_blue] add captured_blue
 execute if score point_c cap_state = max_tick_point_c settings run bossbar set point_c name {"text":"Point C","color":"aqua"}
 execute if score point_c cap_state = max_tick_point_c settings run bossbar set point_c color blue
@@ -116,6 +123,7 @@ execute if score point_c cap_state = max_tick_point_c settings run bossbar set p
 # if captured by team red, make it red
 execute if score point_c cap_state = min_tick_point_c settings run tag @e[tag=control_point_c,tag=uncaptured] remove uncaptured
 execute if score point_c cap_state = min_tick_point_c settings run tag @e[tag=control_point_c,tag=captured_blue] remove captured_blue
+execute as @e[tag=control_point_c,tag=active,tag=!captured_red] at @s if score point_c cap_state = min_tick_point_c settings run experience add @a[distance=..4,team=Red,nbt=!{Inventory:[{tag:{Tags:["ultimate_item"]}}]}] 10 levels
 execute if score point_c cap_state = min_tick_point_c settings run tag @e[tag=control_point_c,tag=!captured_red] add captured_red
 execute if score point_c cap_state = min_tick_point_c settings run bossbar set point_c name {"text":"Point C","color":"red"}
 execute if score point_c cap_state = min_tick_point_c settings run bossbar set point_c color red

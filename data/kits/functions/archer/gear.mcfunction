@@ -8,6 +8,7 @@
 
 function kits:clear_kit
 tag @s add archer
+function kits:clear_ult_item
 
 # add armor
 item replace entity @s[team=Blue] armor.chest with leather_chestplate{Unbreakable:1,display:{color:3847130},HideFlags:64} 1

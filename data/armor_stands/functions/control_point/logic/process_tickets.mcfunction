@@ -11,3 +11,10 @@ scoreboard players operation Red tickets -= red_controlled_points in_range
 # if player died, give other team points / remove tickets
 execute as @a[team=Blue,scores={died=1..}] run scoreboard players operation Red tickets -= tickets_per_kill settings
 execute as @a[team=Red,scores={died=1..}] run scoreboard players operation Blue tickets -= tickets_per_kill settings
+
+
+scoreboard players operation Blue Tickets = Blue tickets
+scoreboard players operation Blue Tickets /= twenty numbers
+
+scoreboard players operation Red Tickets = Red tickets
+scoreboard players operation Red Tickets /= twenty numbers

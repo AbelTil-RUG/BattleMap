@@ -32,11 +32,11 @@ function armor_stands:mana_well/mana_spawn
 scoreboard objectives add in_range dummy
 scoreboard objectives add cap_state dummy
 scoreboard objectives add tickets dummy
+scoreboard objectives add Tickets dummy
 
 # Death Match
 scoreboard objectives add TeamKills dummy
 
-playsound ui.toast.challenge_complete
 
 # title setting
 title @a times 20 60 20
@@ -53,6 +53,11 @@ scoreboard objectives add used_golden_apple minecraft.used:golden_apple
 scoreboard objectives add used_honey_bottle minecraft.used:honey_bottle
 scoreboard objectives add scout_ult_timer dummy
 
+
+## General
+scoreboard objectives add kills playerKillCount
+scoreboard objectives add numbers dummy
+scoreboard players set twenty numbers 20
 
 
 tellraw @a {"text": "Successfully loaded BattleMap datapack", "color": "#aqua", "hoverEvent": {"action": "show_text", "contents": "By CyclingMan"}}

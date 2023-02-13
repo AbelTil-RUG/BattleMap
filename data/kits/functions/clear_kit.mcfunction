@@ -3,7 +3,7 @@ clear @s #kits:kit_items
 
 # clear effects
 effect clear @s
-experience add @s -40 levels
+experience add @s -15 levels
 
 # clear all kits
 tag @s remove wizard

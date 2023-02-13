@@ -16,9 +16,10 @@ scoreboard players enable @a to_arena_trigger
 
 execute as @a if entity @s[tag=!archer,tag=!bomber,tag=!scout,tag=!tank,tag=!wizard] run scoreboard players set @s to_arena_trigger 0
 execute as @a if entity @s[team=!Blue,team=!Red] run scoreboard players set @s to_arena_trigger 0
-execute unless entity @e[tag=active] run scoreboard players set @a to_arena_trigger 0
-execute as @a[scores={to_arena_trigger=1..}] run function battlemap:to_arena
-scoreboard players set @a[scores={to_arena_trigger=1..}] to_arena_trigger 0
+execute unless entity @e[tag=active] as @a[scores={to_arena_trigger=1}] run tellraw @s {"text": "You will spawn if the map is selected."}
+execute unless entity @e[tag=active] as @a[scores={to_arena_trigger=1}] run scoreboard players add @s to_arena_trigger 1
+execute if entity @e[tag=active] as @a[scores={to_arena_trigger=1..}] run function battlemap:to_arena
+execute if entity @e[tag=active] run scoreboard players set @a[scores={to_arena_trigger=1..}] to_arena_trigger 0
 
 # select kit
 scoreboard players enable @a select_kit_trigger
@@ -32,11 +33,11 @@ scoreboard players set @a[scores={select_kit_trigger=1..}] select_kit_trigger 0
 
 # select team
 scoreboard players enable @a team_trigger
-execute as @a[scores={team_trigger=1},tag=!in_arena] run team join Blue
-execute as @a[scores={team_trigger=2},tag=!in_arena] run team join Red
+execute as @a[scores={team_trigger=1}] run team join Blue
+execute as @a[scores={team_trigger=2}] run team join Red
 scoreboard players set @a[scores={team_trigger=1..}] team_trigger 0
 
-## Handle map features
+## map features
 # mana well
 execute if entity @e[tag=mana_well,tag=active] run function armor_stands:mana_well/mana_pickup
 
@@ -51,7 +52,7 @@ execute if entity @e[tag=death_match,tag=active] run function armor_stands:death
 ## Win detection
 function battlemap:win_handler/win_detector
 
-## Handle kit specific things
+## kit specific things
 function kits:archer/arrow
 function kits:archer/ultimate
 
@@ -68,5 +69,7 @@ function kits:tank/ultimate
 function kits:scout/ultimate
 
 function kits:ultimate_particles
+
+function battlemap:kill_handlers/handle_kill
 
 scoreboard players set @a[scores={died=1..}] died 0
