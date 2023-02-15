@@ -5,3 +5,5 @@ bossbar set point_b visible false
 bossbar set point_c visible false
 
 scoreboard objectives setdisplay sidebar
+
+schedule clear battlemap:display_control_state

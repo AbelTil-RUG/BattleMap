@@ -34,7 +34,9 @@ scoreboard players set @a[scores={select_kit_trigger=1..}] select_kit_trigger 0
 # select team
 scoreboard players enable @a team_trigger
 execute as @a[scores={team_trigger=1}] run team join Blue
+execute as @a[scores={team_trigger=1}] run tellraw @s {"text": "You joined team Blue","color": "aqua"}
 execute as @a[scores={team_trigger=2}] run team join Red
+execute as @a[scores={team_trigger=2}] run tellraw @s {"text": "You joined team Red","color": "red"}
 scoreboard players set @a[scores={team_trigger=1..}] team_trigger 0
 
 ## map features

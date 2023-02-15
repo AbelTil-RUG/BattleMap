@@ -34,4 +34,4 @@ execute if entity @e[tag=control_point_a,tag=active] run bossbar set point_a vis
 execute if entity @e[tag=control_point_b,tag=active] run bossbar set point_b visible true
 execute if entity @e[tag=control_point_c,tag=active] run bossbar set point_c visible true
 
-execute if entity @e[tag=active,tag=control_point] run scoreboard objectives setdisplay sidebar Tickets
+function battlemap:display_control_state
