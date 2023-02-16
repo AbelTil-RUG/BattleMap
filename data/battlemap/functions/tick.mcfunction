@@ -4,40 +4,44 @@ function battlemap:kill_handlers/register_death
 ## Remove items and arrows
 kill @e[type=arrow,nbt={inGround:true}]
 kill @e[type=minecraft:item,tag=!do_not_kill]
+kill @e[type=tnt] 
 
 ## Enable triggers (functions that anyone can run, also non OP players)
 # to lobby - always
-scoreboard players enable @a to_lobby_trigger
-execute as @a[scores={to_lobby_trigger=1..}] run function battlemap:to_lobby
-scoreboard players set @a[scores={to_lobby_trigger=1..}] to_lobby_trigger 0
+scoreboard players enable @a lobby
+execute as @a[scores={lobby=1..}] run function battlemap:to_lobby
+scoreboard players set @a[scores={lobby=1..}] lobby 0
 
 # to arena - if in team && kit selected && map selected
-scoreboard players enable @a to_arena_trigger
+scoreboard players enable @a arena
 
-execute as @a if entity @s[tag=!archer,tag=!bomber,tag=!scout,tag=!tank,tag=!wizard] run scoreboard players set @s to_arena_trigger 0
-execute as @a if entity @s[team=!Blue,team=!Red] run scoreboard players set @s to_arena_trigger 0
-execute unless entity @e[tag=active] as @a[scores={to_arena_trigger=1}] run tellraw @s {"text": "You will spawn if the map is selected."}
-execute unless entity @e[tag=active] as @a[scores={to_arena_trigger=1}] run scoreboard players add @s to_arena_trigger 1
-execute if entity @e[tag=active] as @a[scores={to_arena_trigger=1..}] run function battlemap:to_arena
-execute if entity @e[tag=active] run scoreboard players set @a[scores={to_arena_trigger=1..}] to_arena_trigger 0
+execute as @a if entity @s[tag=!archer,tag=!bomber,tag=!scout,tag=!tank,tag=!wizard] run scoreboard players set @s arena 0
+execute as @a if entity @s[team=!Blue,team=!Red] run scoreboard players set @s arena 0
+execute unless entity @e[tag=active] as @a[scores={arena=1}] run tellraw @s {"text": "You will spawn if the map is selected."}
+execute unless entity @e[tag=active] as @a[scores={arena=1}] run scoreboard players add @s arena 1
+execute if entity @e[tag=active] as @a[scores={arena=1..}] run function battlemap:to_arena
+execute if entity @e[tag=active] run scoreboard players set @a[scores={arena=1..}] arena 0
 
 # select kit
-scoreboard players enable @a select_kit_trigger
-execute as @a[scores={select_kit_trigger=1..},tag=in_arena] run function battlemap:to_arena
-execute as @a[scores={select_kit_trigger=1}] run function kits:archer/gear
-execute as @a[scores={select_kit_trigger=2}] run function kits:bomber/gear
-execute as @a[scores={select_kit_trigger=3}] run function kits:scout/gear
-execute as @a[scores={select_kit_trigger=4}] run function kits:tank/gear
-execute as @a[scores={select_kit_trigger=5}] run function kits:wizard/gear
-scoreboard players set @a[scores={select_kit_trigger=1..}] select_kit_trigger 0
+scoreboard players enable @a select_kit
+execute as @a[scores={select_kit=1..},tag=in_arena] run function battlemap:to_arena
+execute as @a[scores={select_kit=1..}] run tellraw @s {"text": "Kit selected"}
+execute as @a[scores={select_kit=1}] run function kits:archer/gear
+execute as @a[scores={select_kit=2}] run function kits:bomber/gear
+execute as @a[scores={select_kit=3}] run function kits:scout/gear
+execute as @a[scores={select_kit=4}] run function kits:tank/gear
+execute as @a[scores={select_kit=5}] run function kits:wizard/gear
+scoreboard players set @a[scores={select_kit=1..}] select_kit 0
 
 # select team
-scoreboard players enable @a team_trigger
-execute as @a[scores={team_trigger=1}] run team join Blue
-execute as @a[scores={team_trigger=1}] run tellraw @s {"text": "You joined team Blue","color": "aqua"}
-execute as @a[scores={team_trigger=2}] run team join Red
-execute as @a[scores={team_trigger=2}] run tellraw @s {"text": "You joined team Red","color": "red"}
-scoreboard players set @a[scores={team_trigger=1..}] team_trigger 0
+scoreboard players enable @a team_blue
+execute as @a[scores={team_blue=1..}] run team join Blue
+execute as @a[scores={team_blue=1..}] run tellraw @s {"text": "You joined team Blue","color": "aqua"}
+scoreboard players set @a[scores={team_blue=1..}] team_red 0
+scoreboard players enable @a team_red
+execute as @a[scores={team_red=1..}] run team join Red
+execute as @a[scores={team_red=1..}] run tellraw @s {"text": "You joined team Red","color": "red"}
+scoreboard players set @a[scores={team_red=1..}] team_red 0
 
 ## map features
 # mana well

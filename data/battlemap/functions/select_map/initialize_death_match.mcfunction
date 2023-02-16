@@ -1,3 +1,3 @@
-scoreboard players set Red TeamKills 0
-scoreboard players set Blue TeamKills 0
-scoreboard objectives setdisplay sidebar TeamKills
+scoreboard players set Red DeathMatchKills 0
+scoreboard players set Blue DeathMatchKills 0
+scoreboard objectives setdisplay sidebar DeathMatchKills

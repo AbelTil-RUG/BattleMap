@@ -6,10 +6,6 @@ bossbar set point_a visible false
 bossbar set point_b visible false
 bossbar set point_c visible false
 
-bossbar set point_a players @a
-bossbar set point_b players @a
-bossbar set point_c players @a
-
 execute store result bossbar point_a max run scoreboard players get max_tick_point_a settings
 execute store result bossbar point_b max run scoreboard players get max_tick_point_b settings
 execute store result bossbar point_c max run scoreboard players get max_tick_point_c settings

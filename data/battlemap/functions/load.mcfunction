@@ -10,10 +10,11 @@ team join Blue Blue
 team add armor_stand
 
 ## Triggers
-scoreboard objectives add to_arena_trigger trigger
-scoreboard objectives add select_kit_trigger trigger
-scoreboard objectives add to_lobby_trigger trigger
-scoreboard objectives add team_trigger trigger
+scoreboard objectives add arena trigger
+scoreboard objectives add select_kit trigger
+scoreboard objectives add lobby trigger
+scoreboard objectives add team_blue trigger
+scoreboard objectives add team_red trigger
 
 scoreboard objectives add died deathCount
 scoreboard objectives add health health
@@ -35,7 +36,7 @@ scoreboard objectives add tickets dummy
 scoreboard objectives add Tickets dummy
 
 # Death Match
-scoreboard objectives add TeamKills dummy
+scoreboard objectives add DeathMatchKills dummy
 
 
 # title setting

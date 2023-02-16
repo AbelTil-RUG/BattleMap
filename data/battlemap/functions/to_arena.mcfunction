@@ -3,9 +3,9 @@ gamemode adventure @s
 
 effect give @s instant_health 1 10 true
 
-bossbar set point_a players @a
-bossbar set point_b players @a
-bossbar set point_c players @a
+bossbar set point_a players @a[tag=in_arena]
+bossbar set point_b players @a[tag=in_arena]
+bossbar set point_c players @a[tag=in_arena]
 
 function battlemap:reload_kit
 
