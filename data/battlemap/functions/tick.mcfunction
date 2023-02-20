@@ -3,8 +3,12 @@ function battlemap:kill_handlers/register_death
 
 ## Remove items and arrows
 kill @e[type=arrow,nbt={inGround:true}]
-kill @e[type=minecraft:item,tag=!do_not_kill]
+kill @e[type=minecraft:item,tag=!do_not_kill,nbt=!{Item:{id:"minecraft:wheat_seeds"}}]
 kill @e[type=tnt] 
+
+# replant wheat
+execute as @e[type=item,nbt={Item:{id:"minecraft:wheat_seeds"}}] run data modify entity @s PickupDelay set value 0 
+execute as @a at @s if entity @s[nbt={Inventory:[{id:"minecraft:wheat_seeds"}]},gamemode=adventure] run function battlemap:replant_wheat
 
 ## Enable triggers (functions that anyone can run, also non OP players)
 # to lobby - always
@@ -17,7 +21,7 @@ scoreboard players enable @a arena
 
 execute as @a if entity @s[tag=!archer,tag=!bomber,tag=!scout,tag=!tank,tag=!wizard] run scoreboard players set @s arena 0
 execute as @a if entity @s[team=!Blue,team=!Red] run scoreboard players set @s arena 0
-execute unless entity @e[tag=active] as @a[scores={arena=1}] run tellraw @s {"text": "You will spawn if the map is selected."}
+execute unless entity @e[tag=active] as @a[scores={arena=1}] run tellraw @s {"text": "You will spawn as soon as the map is selected."}
 execute unless entity @e[tag=active] as @a[scores={arena=1}] run scoreboard players add @s arena 1
 execute if entity @e[tag=active] as @a[scores={arena=1..}] run function battlemap:to_arena
 execute if entity @e[tag=active] run scoreboard players set @a[scores={arena=1..}] arena 0
@@ -37,11 +41,24 @@ scoreboard players set @a[scores={select_kit=1..}] select_kit 0
 scoreboard players enable @a team_blue
 execute as @a[scores={team_blue=1..}] run team join Blue
 execute as @a[scores={team_blue=1..}] run tellraw @s {"text": "You joined team Blue","color": "aqua"}
-scoreboard players set @a[scores={team_blue=1..}] team_red 0
+scoreboard players set @a[scores={team_blue=1..}] team_blue 0
 scoreboard players enable @a team_red
 execute as @a[scores={team_red=1..}] run team join Red
 execute as @a[scores={team_red=1..}] run tellraw @s {"text": "You joined team Red","color": "red"}
 scoreboard players set @a[scores={team_red=1..}] team_red 0
+
+# select map
+scoreboard players enable @a select_map
+execute as @a[scores={select_map=-1},tag=admin] run function battlemap:select_map/deactivate_map
+execute as @a[scores={select_map=-1},tag=admin] run tellraw @a {"text": "All maps deactivated"}
+execute as @a[scores={select_map=1},tag=admin] run function battlemap:select_map/map_1
+execute as @a[scores={select_map=1},tag=admin] run tellraw @a {"text": "Map 1 selected."}
+execute as @a[scores={select_map=2},tag=admin] run function battlemap:select_map/map_2
+execute as @a[scores={select_map=2},tag=admin] run tellraw @a {"text": "Map 2 selected."}
+scoreboard players set @a[scores={select_map=..-1}] select_map 0
+scoreboard players set @a[scores={select_map=1..}] select_map 0
+
+execute if entity @e[tag=active] run title @a[tag=!in_arena] actionbar {"text": "A map is selected","color": "yellow"} 
 
 ## map features
 # mana well
@@ -79,3 +96,11 @@ function kits:ultimate_particles
 function battlemap:kill_handlers/handle_kill
 
 scoreboard players set @a[scores={died=1..}] died 0
+
+# raycaster
+execute as @a[scores={raycast=1..},nbt={Inventory:[{id:"minecraft:firework_rocket"}]}] at @s positioned ~ ~1.5 ~ run function battlemap:raycast
+execute as @a[scores={raycast=1..},nbt={Inventory:[{id:"minecraft:firework_rocket"}]}] at @s run playsound minecraft:entity.firework_rocket.launch player @s ~ ~ ~ 
+execute as @a[scores={raycast=1..},nbt=!{Inventory:[{id:"minecraft:firework_rocket"}]}] at @s run playsound minecraft:block.note_block.hat player @s ~ ~ ~ 
+execute as @a[scores={raycast=1..},nbt={Inventory:[{id:"minecraft:firework_rocket"}]}] run clear @s firework_rocket 1
+
+scoreboard players set @a[scores={raycast=1..}] raycast 0

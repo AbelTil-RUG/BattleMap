@@ -15,6 +15,7 @@ scoreboard objectives add select_kit trigger
 scoreboard objectives add lobby trigger
 scoreboard objectives add team_blue trigger
 scoreboard objectives add team_red trigger
+scoreboard objectives add select_map trigger
 
 scoreboard objectives add died deathCount
 scoreboard objectives add health health
@@ -38,9 +39,8 @@ scoreboard objectives add Tickets dummy
 # Death Match
 scoreboard objectives add DeathMatchKills dummy
 
-
 # title setting
-title @a times 20 60 20
+title @a times 20 10 5
 
 ## Kits
 # scoreboards for replenishing consumables
@@ -53,6 +53,9 @@ scoreboard objectives add used_totem_of_undying minecraft.used:totem_of_undying
 scoreboard objectives add used_golden_apple minecraft.used:golden_apple
 scoreboard objectives add used_honey_bottle minecraft.used:honey_bottle
 scoreboard objectives add scout_ult_timer dummy
+
+# raycast
+scoreboard objectives add raycast used:carrot_on_a_stick
 
 
 ## General

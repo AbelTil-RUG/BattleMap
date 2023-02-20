@@ -8,6 +8,7 @@ bossbar set point_b players @a[tag=in_arena]
 bossbar set point_c players @a[tag=in_arena]
 
 function battlemap:reload_kit
+effect give @a saturation 1000000 1 true
 
 
 tp @s[team=Blue] @e[limit=1,tag=active,tag=blue_spawn,sort=random]
