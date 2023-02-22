@@ -53,9 +53,10 @@ scoreboard objectives add used_totem_of_undying minecraft.used:totem_of_undying
 scoreboard objectives add used_golden_apple minecraft.used:golden_apple
 scoreboard objectives add used_honey_bottle minecraft.used:honey_bottle
 scoreboard objectives add scout_ult_timer dummy
-
-# raycast
-scoreboard objectives add raycast used:carrot_on_a_stick
+scoreboard objectives add sniper_carrot dummy
+scoreboard objectives add sniper_fungus dummy
+scoreboard objectives add shoot_carrot used:carrot_on_a_stick
+scoreboard objectives add shoot_fungus used:warped_fungus_on_a_stick
 
 
 ## General

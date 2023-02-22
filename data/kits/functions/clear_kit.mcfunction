@@ -11,6 +11,7 @@ tag @s remove tank
 tag @s remove bomber
 tag @s remove archer
 tag @s remove scout
+tag @s remove sniper
 
 # clear all restockables
 scoreboard players reset @s archer_arrow
@@ -19,8 +20,8 @@ scoreboard players reset @s wizard_damage_potion
 scoreboard players reset @s wizard_health_potion
 scoreboard players reset @s wizard_speed_potion
 scoreboard players reset @s scout_ult_timer
-
-# clear all generic schedules
+scoreboard players reset @s sniper_carrot
+scoreboard players reset @s sniper_fungus
 
 # clear all attributes
 attribute @s generic.knockback_resistance base set 0

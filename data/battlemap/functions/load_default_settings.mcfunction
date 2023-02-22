@@ -36,3 +36,7 @@ scoreboard players set scout_ult_time settings 200
 scoreboard players set damage_potion_cooldown settings 80
 scoreboard players set health_potion_cooldown settings 160
 scoreboard players set speed_potion_cooldown settings 140
+
+# sniper
+scoreboard players set carrot_cooldown settings 100
+scoreboard players set fungus_cooldown settings 110

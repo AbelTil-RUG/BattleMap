@@ -35,6 +35,7 @@ execute as @a[scores={select_kit=2}] run function kits:bomber/gear
 execute as @a[scores={select_kit=3}] run function kits:scout/gear
 execute as @a[scores={select_kit=4}] run function kits:tank/gear
 execute as @a[scores={select_kit=5}] run function kits:wizard/gear
+execute as @a[scores={select_kit=6}] run function kits:sniper/gear
 scoreboard players set @a[scores={select_kit=1..}] select_kit 0
 
 # select team
@@ -91,16 +92,13 @@ function kits:tank/ultimate
 
 function kits:scout/ultimate
 
+function kits:sniper/detect_shot
+function kits:sniper/carrot
+function kits:sniper/fungus
+
 function kits:ultimate_particles
 
 function battlemap:kill_handlers/handle_kill
 
 scoreboard players set @a[scores={died=1..}] died 0
 
-# raycaster
-execute as @a[scores={raycast=1..},nbt={Inventory:[{id:"minecraft:firework_rocket"}]}] at @s positioned ~ ~1.5 ~ run function battlemap:raycast
-execute as @a[scores={raycast=1..},nbt={Inventory:[{id:"minecraft:firework_rocket"}]}] at @s run playsound minecraft:entity.firework_rocket.launch player @s ~ ~ ~ 
-execute as @a[scores={raycast=1..},nbt=!{Inventory:[{id:"minecraft:firework_rocket"}]}] at @s run playsound minecraft:block.note_block.hat player @s ~ ~ ~ 
-execute as @a[scores={raycast=1..},nbt={Inventory:[{id:"minecraft:firework_rocket"}]}] run clear @s firework_rocket 1
-
-scoreboard players set @a[scores={raycast=1..}] raycast 0
