@@ -19,6 +19,11 @@
         "stone_sword",
 
         "blaze_rod",
-        "minecraft:splash_potion"
+        "minecraft:splash_potion",
+
+        "carrot_on_a_stick",
+        "carrot",
+        "warped_fungus_on_a_stick",
+        "warped_fungus"
     ]
 }

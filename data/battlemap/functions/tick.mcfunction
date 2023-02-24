@@ -56,6 +56,8 @@ execute as @a[scores={select_map=1},tag=admin] run function battlemap:select_map
 execute as @a[scores={select_map=1},tag=admin] run tellraw @a {"text": "Map 1 selected."}
 execute as @a[scores={select_map=2},tag=admin] run function battlemap:select_map/map_2
 execute as @a[scores={select_map=2},tag=admin] run tellraw @a {"text": "Map 2 selected."}
+execute as @a[scores={select_map=3},tag=admin] run function battlemap:select_map/map_3
+execute as @a[scores={select_map=3},tag=admin] run tellraw @a {"text": "Map 3 selected."}
 scoreboard players set @a[scores={select_map=..-1}] select_map 0
 scoreboard players set @a[scores={select_map=1..}] select_map 0
 
