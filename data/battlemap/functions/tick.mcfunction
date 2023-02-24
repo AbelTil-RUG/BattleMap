@@ -73,6 +73,9 @@ execute if entity @e[tag=control_point,tag=active] run function armor_stands:con
 # death match
 execute if entity @e[tag=death_match,tag=active] run function armor_stands:death_match/process_death
 
+# capture the flag
+function ctf:logic
+
 ## Win detection
 function battlemap:win_handler/win_detector
 

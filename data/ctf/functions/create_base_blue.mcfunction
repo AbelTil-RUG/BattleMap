@@ -1,0 +1,1 @@
+summon minecraft:armor_stand ~ ~ ~ {Invisible:1b,Marker:1b,NoBasePlate:1b,Small:1b,DisabledSlots:0,CustomName:'[{"text":"Blue Base","color":"aqua"}]',CustomNameVisible:1b,NoGravity:1b,Tags:["ctf_base","ctf_base_blue"],Team:armor_stand}

@@ -20,6 +20,10 @@ scoreboard players set tickets_per_kill settings 100
 ## Death Match
 scoreboard players set required_kills settings 20
 
+## Capture the flag
+scoreboard players set flag_decay_time settings 200
+scoreboard players set required_flags_captured settings 4
+
 ## Kits
 # archer
 scoreboard players set arrow_cooldown settings 120
