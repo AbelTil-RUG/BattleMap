@@ -1,2 +1,2 @@
-execute if entity @e[tag=active,tag=death_match] if score Blue DeathMatchKills >= required_kills settings run function game:win_handler/blue_win
-execute if entity @e[tag=active,tag=death_match] if score Red DeathMatchKills >= required_kills settings run function game:win_handler/red_win
+execute if score Blue DeathMatchKills >= required_kills settings run function game:win_handler/blue_win
+execute if score Red DeathMatchKills >= required_kills settings run function game:win_handler/red_win

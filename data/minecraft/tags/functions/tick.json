@@ -1,11 +1,11 @@
 {
     "values": [
-        "game:tick",
         "cp:interface/tick",
         "ctf:interface/tick",
         "mw:interface/tick",
         "dm:interface/tick",
         "kits:interface/tick",
-        "triggers:interface/tick"
+        "triggers:interface/tick",
+        "game:tick"
     ]
 }
