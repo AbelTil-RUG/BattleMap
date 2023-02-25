@@ -1,0 +1,1 @@
+function mw:spawn_mana

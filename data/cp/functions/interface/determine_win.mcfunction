@@ -1,0 +1,2 @@
+execute if entity @e[tag=active,tag=control_point] if score Blue tickets matches ..0 run function game:win_handler/blue_win
+execute if entity @e[tag=active,tag=control_point] if score Red tickets matches ..0 run function game:win_handler/red_win

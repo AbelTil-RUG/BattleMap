@@ -1,0 +1,1 @@
+execute if entity @e[tag=death_match,tag=active] run function dm:logic

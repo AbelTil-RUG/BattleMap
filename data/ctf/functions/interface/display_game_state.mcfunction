@@ -1,0 +1,2 @@
+schedule function ctf:interface/display_game_state 5t replace
+title @a[tag=in_arena] actionbar ["","First team to reach ",{"score":{"name":"required_flags_captured","objective":"settings"}},": ",{"score":{"name":"Red","objective":"FlagsCaptured"},"color":"dark_red"}," - ",{"score":{"name":"Blue","objective":"FlagsCaptured"},"color":"aqua"}]

@@ -1,5 +1,11 @@
 {
     "values": [
-        "battlemap:load"
+        "game:load",
+        "cp:interface/load",
+        "ctf:interface/load",
+        "mw:interface/load",
+        "dm:interface/load",
+        "kits:interface/load",
+        "triggers:interface/load"
     ]
 }

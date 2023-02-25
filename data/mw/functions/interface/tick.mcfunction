@@ -1,0 +1,1 @@
+execute if entity @e[tag=mana_well,tag=active] run function mw:logic
