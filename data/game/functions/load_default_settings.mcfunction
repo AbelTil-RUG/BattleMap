@@ -1,6 +1,8 @@
 
 scoreboard players set do_overwrite settings 1
 
+scoreboard players set death_time settings 100
+
 ## Control Points
 scoreboard players set max_tick_point_a settings 300
 scoreboard players set mid_tick_point_a settings 150

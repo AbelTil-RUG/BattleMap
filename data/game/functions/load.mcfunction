@@ -18,8 +18,10 @@ execute unless score do_overwrite settings matches 0 run function game:load_defa
 scoreboard objectives add kills playerKillCount
 scoreboard objectives add numbers dummy
 scoreboard players set twenty numbers 20
+scoreboard objectives add death_timer_ticks dummy
+scoreboard objectives add death_timer_seconds dummy
 
 ## other
 function interface:activate_map
-title @a times 20 10 5
+title @a times 0 10 5
 tellraw @a {"text": "Successfully loaded BattleMap datapack", "color": "#aqua", "hoverEvent": {"action": "show_text", "contents": "By CyclingMan"}}

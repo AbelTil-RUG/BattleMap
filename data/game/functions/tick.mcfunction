@@ -1,5 +1,5 @@
 ## Death detection
-function game:kill_handlers/register_death
+function game:kill_handlers/handle_death
 
 function interface:tick
 

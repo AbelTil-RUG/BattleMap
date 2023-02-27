@@ -35,6 +35,7 @@ execute if score blue_flag flag_decay_ticks matches ..0 run scoreboard players r
 # give red point if reached red base
 execute as @e[tag=ctf_flag_blue] at @s if entity @e[tag=ctf_base_red,distance=..1] run scoreboard players add Red FlagsCaptured 1
 execute as @e[tag=ctf_flag_blue] at @s if entity @e[tag=ctf_base_red,distance=..1] run tellraw @a ["",{"selector":"@p","bold":true}," captured the blue flag!"]
+execute as @e[tag=ctf_flag_blue] at @s if entity @e[tag=ctf_base_red,distance=..1] run experience add @p 10 levels
 execute as @e[tag=ctf_flag_blue] at @s if entity @e[tag=ctf_base_red,distance=..1] run kill @s
 
 # show flag particles
@@ -77,6 +78,7 @@ execute if score red_flag flag_decay_ticks matches ..0 run scoreboard players re
 # give blue point if reached blue base
 execute as @e[tag=ctf_flag_red] at @s if entity @e[tag=ctf_base_blue,distance=..1] run scoreboard players add Blue FlagsCaptured 1
 execute as @e[tag=ctf_flag_red] at @s if entity @e[tag=ctf_base_blue,distance=..1] run tellraw @a ["",{"selector":"@p","bold":true}," captured the Red flag!"]
+execute as @e[tag=ctf_flag_red] at @s if entity @e[tag=ctf_base_blue,distance=..1] run experience add @p 10 levels
 execute as @e[tag=ctf_flag_red] at @s if entity @e[tag=ctf_base_blue,distance=..1] run kill @s
 
 # show flag particles
