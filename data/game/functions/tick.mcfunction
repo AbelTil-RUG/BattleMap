@@ -1,6 +1,8 @@
 ## Death detection
 function game:kill_handlers/register_death
 
+function interface:tick
+
 ## Remove items and arrows
 kill @e[type=arrow,nbt={inGround:true}]
 kill @e[type=minecraft:item,tag=!do_not_kill,nbt=!{Item:{id:"minecraft:wheat_seeds"}}]
