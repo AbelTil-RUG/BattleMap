@@ -12,9 +12,9 @@ item replace entity @s[team=Red] armor.legs with leather_leggings{Unbreakable:1,
 item replace entity @s[team=Red] armor.feet with leather_boots{Unbreakable:1,display:{color:11546150},HideFlags:64} 1
 
 # add weapons
-give @p stick{Unbreakable:1,Enchantments:[{id:sharpness,lvl:2}]} 1
-give @p carrot_on_a_stick{Unbreakable:1} 1
-give @p warped_fungus_on_a_stick{Unbreakable:1} 1
+give @s stick{Unbreakable:1,Enchantments:[{id:sharpness,lvl:2}]} 1
+give @s carrot_on_a_stick{Unbreakable:1} 1
+give @s warped_fungus_on_a_stick{Unbreakable:1} 1
 
 
 # add attributes

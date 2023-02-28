@@ -16,5 +16,6 @@ function kits:scout/ultimate
 function kits:sniper/detect_shot
 function kits:sniper/carrot
 function kits:sniper/fungus
+function kits:sniper/ultimate
 
 function kits:ultimate_particles

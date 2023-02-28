@@ -20,13 +20,15 @@ item replace entity @s[team=Red] armor.legs with leather_leggings{Unbreakable:1,
 item replace entity @s[team=Red] armor.feet with leather_boots{Unbreakable:1,display:{color:11546150},HideFlags:64} 1
 
 # add weapons
-give @p stick{Unbreakable:1,Enchantments:[{id:sharpness,lvl:5}]} 1
-give @p bow{Unbreakable:1,Enchantments:[{id:power,lvl:1},{id:punch,lvl:1}]} 1
+give @s stick{Unbreakable:1,Enchantments:[{id:sharpness,lvl:5}]} 1
+give @s bow{Unbreakable:1,Enchantments:[{id:power,lvl:1},{id:punch,lvl:1}]} 1
 
 
 # add attributes
 
 # add restockables
 scoreboard players set @s archer_arrow 0
+
+attribute @s generic.max_health base set 14
 
 

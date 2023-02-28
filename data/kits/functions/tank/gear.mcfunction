@@ -21,7 +21,7 @@ item replace entity @s[team=Red] armor.legs with leather_leggings{Unbreakable:1,
 item replace entity @s[team=Red] armor.feet with leather_boots{Unbreakable:1,display:{color:11546150},HideFlags:64} 1
 
 # add weapons
-give @p stone_sword{Unbreakable:1,Enchantments:[{id:sweeping,lvl:3}]} 1
+give @s stone_sword{Unbreakable:1,Enchantments:[{id:sweeping,lvl:3}]} 1
 
 # add attributes
 attribute @s generic.knockback_resistance base set 0.4

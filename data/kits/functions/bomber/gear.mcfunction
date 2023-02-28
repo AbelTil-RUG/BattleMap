@@ -22,7 +22,7 @@ item replace entity @s[team=Red] armor.chest with chainmail_chestplate{Unbreakab
 item replace entity @s[team=Red] armor.legs with leather_leggings{Unbreakable:1,display:{color:11546150},HideFlags:64,Enchantments:[{id:blast_protection,lvl:3}]} 1
 item replace entity @s[team=Red] armor.feet with leather_boots{Unbreakable:1,display:{color:11546150},HideFlags:64} 1
 # add weapons
-give @p stone_axe{Unbreakable:1}
+give @s stone_axe{Unbreakable:1}
 
 # add restockables
 scoreboard players set @s bomber_bob 0

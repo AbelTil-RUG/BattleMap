@@ -19,9 +19,9 @@ item replace entity @s[team=Red] armor.legs with leather_leggings{Unbreakable:1,
 item replace entity @s[team=Red] armor.feet with leather_boots{Unbreakable:1,display:{color:11546150},HideFlags:64} 1
 
 # add weapons
-give @p iron_shovel{Unbreakable:1,Enchantments:[{id:knockback,lvl:1}]} 1
+give @s iron_shovel{Unbreakable:1,Enchantments:[{id:knockback,lvl:1}]} 1
 
-effect give @s jump_boost 3600 0 true
+# effect give @s jump_boost 3600 0 true
 attribute @s generic.movement_speed base set 0.12
 
 attribute @s generic.max_health base set 14

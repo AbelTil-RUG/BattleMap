@@ -1,4 +1,6 @@
 scoreboard players enable @a arena
+scoreboard players reset @a[gamemode=spectator] arena
+scoreboard players reset @a[tag=in_arena] arena
 
 # you can only tp to the arena if
     # a team has been chosen

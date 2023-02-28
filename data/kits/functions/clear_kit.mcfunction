@@ -3,7 +3,7 @@ clear @s #kits:kit_items
 
 # clear effects
 effect clear @s
-experience add @s -15 levels
+experience add @s -5 levels
 
 # clear all kits
 tag @s remove wizard
@@ -19,7 +19,6 @@ scoreboard players reset @s bomber_bob
 scoreboard players reset @s wizard_damage_potion
 scoreboard players reset @s wizard_health_potion
 scoreboard players reset @s wizard_speed_potion
-scoreboard players reset @s scout_ult_timer
 scoreboard players reset @s sniper_carrot
 scoreboard players reset @s sniper_fungus
 

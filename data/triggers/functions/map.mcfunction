@@ -1,4 +1,5 @@
 scoreboard players enable @a select_map
+scoreboard players reset @a[tag=in_arena] select_map
 execute as @a[scores={select_map=-1},tag=admin] run function interface:deactivate_map
 execute as @a[scores={select_map=-1},tag=admin] run tellraw @a {"text": "All maps deactivated"}
 execute as @a[scores={select_map=-1},tag=admin] run title @a[tag=!in_arena] actionbar {"text": ""} 

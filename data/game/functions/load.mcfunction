@@ -1,13 +1,18 @@
 ## Teams
 team add Red 
 team modify Red color red
+team modify Red friendlyFire false
 team join Red Red
 
 team add Blue
 team modify Blue color aqua
+team modify Blue friendlyFire false
 team join Blue Blue
 
 team add armor_stand
+
+team add Lobby
+team modify Lobby friendlyFire false
 
 ## scoreboards
 scoreboard objectives add died deathCount

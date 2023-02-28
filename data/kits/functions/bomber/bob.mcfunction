@@ -1,3 +1,3 @@
-give @a[tag=bomber,tag=in_arena,scores={bomber_bob=0},nbt=!{Inventory:[{id:"minecraft:creeper_spawn_egg"}]}] creeper_spawn_egg{EntityTag:{powered:0,Fuse:10,ExplosionRadius:3,ignited:1,CustomName:'[{"text":"BOB"}]'},display:{Name:'[{"text":"BOB","italic":false}]'},CanPlaceOn:["minecraft:diamond_block","deepslate_copper_ore"]} 1
+give @a[tag=bomber,tag=in_arena,scores={bomber_bob=0},nbt=!{Inventory:[{id:"minecraft:creeper_spawn_egg"}]}] creeper_spawn_egg{EntityTag:{powered:0,Fuse:10,ExplosionRadius:3,ignited:1,CustomName:'[{"text":"BOB"}]'},display:{Name:'[{"text":"BOB","italic":false}]'},CanPlaceOn:["deepslate_copper_ore","andesite","cobblestone","mossy_cobblestone","stone"]} 1
 scoreboard players operation @a[tag=bomber,tag=in_arena,scores={bomber_bob=..0}] bomber_bob = bob_cooldown settings
 execute as @a[tag=bomber,tag=in_arena,nbt=!{Inventory:[{id:"minecraft:creeper_spawn_egg"}]}] run scoreboard players remove @s bomber_bob 1

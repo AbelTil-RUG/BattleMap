@@ -4,5 +4,5 @@ give @a[tag=bomber,tag=in_arena,level=100..,nbt=!{Inventory:[{tag:{Tags:["ultima
 experience set @a[tag=bomber,tag=in_arena,level=100..] 0 levels
 
 # replace trident with creeper if trident touches the ground
-execute at @e[type=minecraft:trident,nbt={inGround:true}] run summon creeper ~ ~ ~ {Fuse:30,ExplosionRadius:4,ignited:1,NoAI:true,Invulnerable:1}
+execute at @e[type=minecraft:trident,nbt={inGround:true}] run summon creeper ~ ~ ~ {Fuse:30,ExplosionRadius:5,ignited:1,NoAI:true,Invulnerable:1}
 kill @e[type=minecraft:trident,nbt={inGround:true}]

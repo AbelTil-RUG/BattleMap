@@ -10,10 +10,14 @@ execute as @e[tag=ctf_flag_blue,limit=1] at @s run tp @s @p[distance=..1.5,team=
 
 # set flag to be on the move
 execute as @e[tag=ctf_flag_blue,limit=1,tag=ctf_flag_at_base] at @s if entity @p[distance=..1,team=Red] run tag @s remove ctf_flag_at_base
+execute as @e[tag=ctf_flag_blue,limit=1,tag=!ctf_flag_moving] at @s if entity @p[distance=..1,team=Red] run tellraw @a ["",{"selector":"@p","bold":true}," picked up the ", {"text": "Blue", "color": "aqua"}," flag!"]
+execute as @e[tag=ctf_flag_blue,limit=1,tag=!ctf_flag_moving] at @s if entity @p[distance=..1,team=Red] run experience add @p 5 levels
+execute as @e[tag=ctf_flag_blue,limit=1,tag=!ctf_flag_moving] at @s if entity @p[distance=..1,team=Red] run playsound minecraft:entity.experience_orb.pickup player @p
 execute as @e[tag=ctf_flag_blue,limit=1,tag=!ctf_flag_moving] at @s if entity @p[distance=..1,team=Red] run tag @s add ctf_flag_moving
 
 # remove flag to be on the move
 execute as @e[tag=ctf_flag_blue,limit=1,tag=ctf_flag_moving] at @s unless entity @p[distance=..1,team=Red] run scoreboard players operation blue_flag flag_decay_ticks = flag_decay_time settings 
+execute as @e[tag=ctf_flag_blue,limit=1,tag=ctf_flag_moving] at @s unless entity @p[distance=..1,team=Red] run tellraw @a {"text": "Blue flag is dropped!", "color": "yellow"}
 execute as @e[tag=ctf_flag_blue,limit=1,tag=ctf_flag_moving] at @s unless entity @p[distance=..1,team=Red] run tag @s remove ctf_flag_moving
 
 # calculate decay
@@ -34,8 +38,9 @@ execute if score blue_flag flag_decay_ticks matches ..0 run scoreboard players r
 
 # give red point if reached red base
 execute as @e[tag=ctf_flag_blue] at @s if entity @e[tag=ctf_base_red,distance=..1] run scoreboard players add Red FlagsCaptured 1
-execute as @e[tag=ctf_flag_blue] at @s if entity @e[tag=ctf_base_red,distance=..1] run tellraw @a ["",{"selector":"@p","bold":true}," captured the blue flag!"]
+execute as @e[tag=ctf_flag_blue] at @s if entity @e[tag=ctf_base_red,distance=..1] run tellraw @a ["",{"selector":"@p","bold":true}," captured the ", {"text": "Blue", "color": "aqua"}," flag!"]
 execute as @e[tag=ctf_flag_blue] at @s if entity @e[tag=ctf_base_red,distance=..1] run experience add @p 10 levels
+execute as @e[tag=ctf_flag_blue] at @s if entity @e[tag=ctf_base_red,distance=..1] run playsound minecraft:entity.experience_orb.pickup player @p
 execute as @e[tag=ctf_flag_blue] at @s if entity @e[tag=ctf_base_red,distance=..1] run kill @s
 
 # show flag particles
@@ -53,10 +58,14 @@ execute as @e[tag=ctf_flag_red,limit=1] at @s run tp @s @p[distance=..1.5,team=B
 
 # set flag to be on the move
 execute as @e[tag=ctf_flag_red,limit=1,tag=ctf_flag_at_base] at @s if entity @p[distance=..1,team=Blue] run tag @s remove ctf_flag_at_base
+execute as @e[tag=ctf_flag_red,limit=1,tag=!ctf_flag_moving] at @s if entity @p[distance=..1,team=Blue] run tellraw @a ["",{"selector":"@p","bold":true}," picked up the ", {"text": "Red", "color": "red"}," flag!"]
+execute as @e[tag=ctf_flag_red,limit=1,tag=!ctf_flag_moving] at @s if entity @p[distance=..1,team=Blue] run playsound minecraft:entity.experience_orb.pickup player @p
+execute as @e[tag=ctf_flag_red,limit=1,tag=!ctf_flag_moving] at @s if entity @p[distance=..1,team=Blue] run experience add @p 5 levels
 execute as @e[tag=ctf_flag_red,limit=1,tag=!ctf_flag_moving] at @s if entity @p[distance=..1,team=Blue] run tag @s add ctf_flag_moving
 
 # remove flag to be on the move
 execute as @e[tag=ctf_flag_red,limit=1,tag=ctf_flag_moving] at @s unless entity @p[distance=..1,team=Blue] run scoreboard players operation red_flag flag_decay_ticks = flag_decay_time settings 
+execute as @e[tag=ctf_flag_red,limit=1,tag=ctf_flag_moving] at @s unless entity @p[distance=..1,team=Blue] run tellraw @a {"text": "Red flag is dropped!", "color": "yellow"}
 execute as @e[tag=ctf_flag_red,limit=1,tag=ctf_flag_moving] at @s unless entity @p[distance=..1,team=Blue] run tag @s remove ctf_flag_moving
 
 # calculate decay
@@ -77,8 +86,9 @@ execute if score red_flag flag_decay_ticks matches ..0 run scoreboard players re
 
 # give blue point if reached blue base
 execute as @e[tag=ctf_flag_red] at @s if entity @e[tag=ctf_base_blue,distance=..1] run scoreboard players add Blue FlagsCaptured 1
-execute as @e[tag=ctf_flag_red] at @s if entity @e[tag=ctf_base_blue,distance=..1] run tellraw @a ["",{"selector":"@p","bold":true}," captured the Red flag!"]
+execute as @e[tag=ctf_flag_red] at @s if entity @e[tag=ctf_base_blue,distance=..1] run tellraw @a ["",{"selector":"@p","bold":true}," captured the ", {"text": "Red", "color": "red"}," flag!"]
 execute as @e[tag=ctf_flag_red] at @s if entity @e[tag=ctf_base_blue,distance=..1] run experience add @p 10 levels
+execute as @e[tag=ctf_flag_red] at @s if entity @e[tag=ctf_base_blue,distance=..1] run playsound minecraft:entity.experience_orb.pickup player @p
 execute as @e[tag=ctf_flag_red] at @s if entity @e[tag=ctf_base_blue,distance=..1] run kill @s
 
 # show flag particles

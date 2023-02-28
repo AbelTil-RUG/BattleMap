@@ -14,9 +14,10 @@ execute as @a at @s if entity @s[nbt={Inventory:[{id:"minecraft:wheat_seeds"}]},
 
 function game:kill_handlers/handle_kill
 
+team join Lobby @a[team=!armor_stand,team=!Blue,team=!Red,team=!Lobby]
+
 execute as @a[predicate=game:is_sneaking,gamemode=adventure,tag=in_arena] run effect give @s slowness 1 10 true
 execute as @a[predicate=game:is_sneaking,gamemode=adventure,tag=in_arena] run effect give @s resistance 1 0 false
-execute as @a[predicate=!game:is_sneaking,gamemode=adventure,tag=in_arena] run effect clear @s resistance
 
 execute as @a[team=Red,predicate=!game:is_poisoned] at @s if block ~ ~-2 ~ blue_wool run effect give @s poison 3 1
 execute as @a[team=Blue,predicate=!game:is_poisoned] at @s if block ~ ~-2 ~ red_wool run effect give @s poison 3 1
