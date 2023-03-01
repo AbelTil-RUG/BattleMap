@@ -28,7 +28,3 @@ give @s bow{Unbreakable:1,Enchantments:[{id:power,lvl:1},{id:punch,lvl:1}]} 1
 
 # add restockables
 scoreboard players set @s archer_arrow 0
-
-attribute @s generic.max_health base set 14
-
-

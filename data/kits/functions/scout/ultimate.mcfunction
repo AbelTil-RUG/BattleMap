@@ -7,4 +7,4 @@ effect give @a[tag=scout,scores={used_honey_bottle=1..}] speed 10 0 false
 
 clear @a glass_bottle
 
-scoreboard players set @a[scores={used_honey_bottle=1..}] used_honey_bottle 0
+scoreboard players set @a[scores={used_honey_bottle=1..},tag=scout] used_honey_bottle 0

@@ -3,7 +3,7 @@ execute if block ~ ~ ~ air positioned ~ ~-1.35 ~ unless entity @e[distance=..0.7
 
 execute positioned ~ ~-1.35 ~ as @e[distance=..0.75,type=!armor_stand] if entity @s at @s positioned ~ ~1 ~ run particle dust 0 1 0 2 ~ ~ ~ 0.3 0.3 0.3 0 5 force 
 execute as @e[distance=..0.75,type=!armor_stand] run playsound item.trident.hit_ground player @s
-execute positioned ~ ~-1.35 ~ as @e[distance=..0.75,type=!armor_stand] if entity @s at @s run effect give @s glowing 3 0 true
-execute positioned ~ ~-1.35 ~ as @e[distance=..0.75,type=!armor_stand] if entity @s at @s run effect give @s wither 4 1 true
-execute positioned ~ ~-1.35 ~ as @e[distance=..0.75,type=!armor_stand] if entity @s at @s run effect give @s slowness 3 0 true
-execute positioned ~ ~-1.35 ~ as @e[distance=..0.75,type=!armor_stand] if entity @s at @s run effect give @s weakness 3 0 true
+execute positioned ~ ~-1.35 ~ as @e[distance=..0.75,type=!armor_stand] if entity @s at @s run effect give @s glowing 4 0 true
+execute positioned ~ ~-1.35 ~ as @e[distance=..0.75,type=!armor_stand] if entity @s at @s run effect give @s instant_damage 1 0 true
+execute positioned ~ ~-1.35 ~ as @e[distance=..0.75,type=!armor_stand] if entity @s at @s run effect give @s slowness 4 1 true
+execute positioned ~ ~-1.35 ~ as @e[distance=..0.75,type=!armor_stand] if entity @s at @s run effect give @s weakness 4 1 true

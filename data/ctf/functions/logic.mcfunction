@@ -44,7 +44,7 @@ execute as @e[tag=ctf_flag_blue] at @s if entity @e[tag=ctf_base_red,distance=..
 execute as @e[tag=ctf_flag_blue] at @s if entity @e[tag=ctf_base_red,distance=..1] run kill @s
 
 # show flag particles
-execute as @e[tag=ctf_flag_blue] at @s run particle dust 0 0 1 1 ~ ~2.5 ~ 0 0.1 0 0 5
+execute as @e[tag=ctf_flag_blue] at @s as @p[distance=..1.5,team=Red] at @s run particle dust 0 0 1 1 ~ ~1 ~ 0.5 0.2 0.5 0 5
 
 ##################################################################################################################
 ## Red flag
@@ -92,4 +92,4 @@ execute as @e[tag=ctf_flag_red] at @s if entity @e[tag=ctf_base_blue,distance=..
 execute as @e[tag=ctf_flag_red] at @s if entity @e[tag=ctf_base_blue,distance=..1] run kill @s
 
 # show flag particles
-execute as @e[tag=ctf_flag_red] at @s run particle dust 1 0 0 1 ~ ~2.5 ~ 0 0.1 0 0 5
+execute as @e[tag=ctf_flag_red] at @s as @p[distance=..1.5,team=Blue] at @s run particle dust 1 0 0 1 ~ ~1 ~ 0.5 0.2 0.5 0 5

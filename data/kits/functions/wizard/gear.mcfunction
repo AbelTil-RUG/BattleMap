@@ -32,3 +32,5 @@ scoreboard players set @s wizard_speed_potion 0
 scoreboard players set @s wizard_health_potion 0
 scoreboard players set @s wizard_damage_potion 0
 
+attribute @s generic.movement_speed base set 0.105
+attribute @s generic.max_health base set 14

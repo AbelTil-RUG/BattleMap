@@ -36,7 +36,7 @@ scoreboard players set bob_cooldown settings 140
 # tank
 
 # wizard
-scoreboard players set damage_potion_cooldown settings 80
+scoreboard players set damage_potion_cooldown settings 60
 scoreboard players set health_potion_cooldown settings 200
 scoreboard players set speed_potion_cooldown settings 240
 
