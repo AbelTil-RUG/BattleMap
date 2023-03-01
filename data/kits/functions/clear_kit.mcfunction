@@ -3,6 +3,7 @@ clear @s #kits:kit_items
 
 # clear effects
 effect clear @s
+effect give @a saturation 1000000 1 true
 experience add @s -5 levels
 
 # clear all kits

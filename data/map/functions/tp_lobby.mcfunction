@@ -1,7 +1,7 @@
 tag @s remove in_arena
 gamemode adventure @s
 function kits:clear_kit
-effect give @a saturation 1000000 1 true
+clear @s
 experience set @s 0 levels
 
 bossbar set point_a players @a[tag=in_arena]

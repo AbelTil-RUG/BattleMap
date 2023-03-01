@@ -1,2 +1,2 @@
-execute if score Blue FlagsCaptured >= required_flags_captured settings run function game:win_handler/blue_win
-execute if score Red FlagsCaptured >= required_flags_captured settings run function game:win_handler/red_win
+execute if score Blue FlagsCaptured >= required_flags_captured ctf_settings run function game:win_handler/blue_win
+execute if score Red FlagsCaptured >= required_flags_captured ctf_settings run function game:win_handler/red_win

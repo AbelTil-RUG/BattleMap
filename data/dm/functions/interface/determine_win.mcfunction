@@ -1,2 +1,2 @@
-execute if score Blue DeathMatchKills >= required_kills settings run function game:win_handler/blue_win
-execute if score Red DeathMatchKills >= required_kills settings run function game:win_handler/red_win
+execute if score Blue DeathMatchKills >= required_kills dm_settings run function game:win_handler/blue_win
+execute if score Red DeathMatchKills >= required_kills dm_settings run function game:win_handler/red_win

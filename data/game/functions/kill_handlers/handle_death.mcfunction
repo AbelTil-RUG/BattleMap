@@ -4,7 +4,7 @@ execute as @a[tag=in_arena,scores={death_timer_ticks=1..}] run scoreboard player
 execute as @a[tag=in_arena,scores={death_timer_ticks=1..}] run scoreboard players operation @s death_timer_seconds = @s death_timer_ticks
 execute as @a[tag=in_arena,scores={death_timer_ticks=1..}] run scoreboard players operation @s death_timer_seconds /= twenty numbers
 execute as @a[tag=in_arena,scores={death_timer_ticks=1..}] run scoreboard players add @s death_timer_seconds 1
-execute as @a[tag=in_arena,scores={died=1..}] run scoreboard players operation @s death_timer_ticks = death_time settings
+execute as @a[tag=in_arena,scores={died=1..}] run scoreboard players operation @s death_timer_ticks = death_time general_settings
 execute as @a[tag=in_arena,scores={died=1..}] run gamemode spectator @s
 execute as @a[tag=in_arena,scores={died=1..}] run tellraw @s ["",{"text":"Change your kit: ","color":"gold"},{"text":"Archer ","bold":true,"clickEvent":{"action":"run_command","value":"/trigger select_kit set 1"}},{"text":"Bomber ","bold":true,"clickEvent":{"action":"run_command","value":"/trigger select_kit set 2"}},{"text":"Scout ","bold":true,"clickEvent":{"action":"run_command","value":"/trigger select_kit set 3"}},{"text":"Tank ","bold":true,"clickEvent":{"action":"run_command","value":"/trigger select_kit set 4"}},{"text":"Wizard ","bold":true,"clickEvent":{"action":"run_command","value":"/trigger select_kit set 5"}},{"text":"Sniper ","bold":true,"clickEvent":{"action":"run_command","value":"/trigger select_kit set 6"}}]
 

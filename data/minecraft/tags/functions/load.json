@@ -1,7 +1,7 @@
 {
     "values": [
         "game:load",
-        "cp:interface/load",
+        "cq:interface/load",
         "ctf:interface/load",
         "mw:interface/load",
         "dm:interface/load",
