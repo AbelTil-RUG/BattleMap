@@ -7,11 +7,15 @@ execute as @e[tag=active,tag=ctf_base,tag=ctf_base_blue] at @s unless entity @e[
 execute as @e[tag=active,tag=ctf_base,tag=ctf_base_blue] at @s unless entity @e[tag=ctf_flag_blue] unless entity @a[nbt={Inventory:[{id:"minecraft:light_blue_banner"}]},team=Red] run summon armor_stand ~ ~ ~ {Invisible:1b,Marker:1b,NoBasePlate:1b,Small:1b,DisabledSlots:0,Tags:["ctf_flag_blue","ctf_flag_at_base"],Team:armor_stand,CustomNameVisible:1,ArmorItems:[{},{},{},{id:light_blue_wool,Count:1}],ArmorDropChances:[0f,0f,0f,0f]}
 
 # if enemy is close, give player the flag
-execute at @e[tag=ctf_flag_blue] as @p[distance=..1,team=Red] if entity @e[tag=ctf_flag_blue] run playsound minecraft:block.composter.ready player @s
-execute at @e[tag=ctf_flag_blue] as @p[distance=..1,team=Red] if entity @e[tag=ctf_flag_blue] run playsound block.note_block.banjo player @a[team=Blue] ~ ~ ~ 1 0.1
-execute at @e[tag=ctf_flag_blue] as @p[distance=..1,team=Red] if entity @e[tag=ctf_flag_blue] run tellraw @a [{"text": "Blue flag has been picked up by ","color": "aqua"},{"selector":"@s","bold": true}]
-execute at @e[tag=ctf_flag_blue] as @p[distance=..1,team=Red] if entity @e[tag=ctf_flag_blue] run item replace entity @p armor.head with light_blue_banner{Enchantments:[{id:binding_curse,lvl:1}]}
-execute at @e[tag=ctf_flag_blue] as @p[distance=..1,team=Red] if entity @e[tag=ctf_flag_blue] run kill @e[tag=ctf_flag_blue]
+execute at @e[tag=ctf_flag_blue] as @p[distance=..2,team=Red] run playsound minecraft:block.composter.ready player @s
+execute at @e[tag=ctf_flag_blue] as @p[distance=..2,team=Red] run playsound block.note_block.banjo player @a[team=Blue] ~ ~ ~ 1 0.1
+execute at @e[tag=ctf_flag_blue] as @p[distance=..2,team=Red] run tellraw @a [{"text": "Blue flag has been picked up by ","color": "aqua"},{"selector":"@s","bold": true}]
+execute at @e[tag=ctf_flag_blue] as @p[distance=..2,team=Red] run item replace entity @p armor.head with light_blue_banner{Enchantments:[{id:binding_curse,lvl:1}]}
+execute at @e[tag=ctf_flag_blue] as @p[distance=..2,team=Red] unless entity @e[tag=ctf_ghost_flag_blue] run summon armor_stand ~ ~ ~ {Invisible:1b,Marker:1b,NoBasePlate:1b,Small:1b,Tags:["ctf_ghost_flag_blue"],Team:armor_stand}
+execute at @e[tag=ctf_flag_blue] as @p[distance=..2,team=Red] run kill @e[tag=ctf_flag_blue]
+
+# tp armor stand to flag carrier, such that if player dies, game knows where to drop the flag
+execute as @a[nbt={Inventory:[{id:"minecraft:light_blue_banner"}]},team=Red,scores={died=0},gamemode=adventure] at @s run tp @e[tag=ctf_ghost_flag_blue] @s
 
 # show the carrier particles
 execute as @a[nbt={Inventory:[{id:"minecraft:light_blue_banner"}]},team=Red] at @s run particle dust 0 0 1 0.7 ~ ~1 ~ 0.4 0.2 0.4 1 5 force
@@ -27,7 +31,7 @@ execute as @a[nbt={Inventory:[{id:"minecraft:light_blue_banner"}]},team=Red] at 
 # if player dies, drop the flag
 execute as @a[nbt={Inventory:[{id:"minecraft:light_blue_banner"}]},scores={died=1..},team=Red] run playsound entity.slime.attack player @a
 execute as @a[nbt={Inventory:[{id:"minecraft:light_blue_banner"}]},scores={died=1..},team=Red] run tellraw @a [{"text": "Blue flag has been dropped by ", "color": "aqua"}, {"selector":"@s", "bold": true}]
-execute as @a[nbt={Inventory:[{id:"minecraft:light_blue_banner"}]},scores={died=1..},team=Red] at @s run summon armor_stand ~ ~ ~ {Invisible:1b,Marker:1b,NoBasePlate:1b,Small:1b,DisabledSlots:0,Tags:["ctf_flag_blue","ctf_flag_on_floor"],Team:armor_stand,CustomNameVisible:1,ArmorItems:[{},{},{},{id:light_blue_wool,Count:1}],ArmorDropChances:[0f,0f,0f,0f]}
+execute as @a[nbt={Inventory:[{id:"minecraft:light_blue_banner"}]},scores={died=1..},team=Red] at @e[tag=ctf_ghost_flag_blue] run summon armor_stand ~ ~ ~ {Invisible:1b,Marker:1b,NoBasePlate:1b,Small:1b,DisabledSlots:0,Tags:["ctf_flag_blue","ctf_flag_on_floor"],Team:armor_stand,CustomNameVisible:1,ArmorItems:[{},{},{},{id:light_blue_wool,Count:1}],ArmorDropChances:[0f,0f,0f,0f]}
 execute as @a[nbt={Inventory:[{id:"minecraft:light_blue_banner"}]},scores={died=1..},team=Red] run item replace entity @s armor.head with air
 
 # if flag is dropped, let it decay
@@ -56,11 +60,15 @@ execute as @e[tag=active,tag=ctf_base,tag=ctf_base_red] at @s unless entity @e[t
 execute as @e[tag=active,tag=ctf_base,tag=ctf_base_red] at @s unless entity @e[tag=ctf_flag_red] unless entity @a[nbt={Inventory:[{id:"minecraft:red_banner"}]},team=Blue] run summon armor_stand ~ ~ ~ {Invisible:1b,Marker:1b,NoBasePlate:1b,Small:1b,DisabledSlots:0,Tags:["ctf_flag_red","ctf_flag_at_base"],Team:armor_stand,CustomNameVisible:1,ArmorItems:[{},{},{},{id:red_wool,Count:1}],ArmorDropChances:[0f,0f,0f,0f]}
 
 # if enemy is close, give player the flag
-execute at @e[tag=ctf_flag_red] as @p[distance=..1,team=Blue] if entity @e[tag=ctf_flag_red] run playsound minecraft:block.composter.ready player @s
-execute at @e[tag=ctf_flag_red] as @p[distance=..1,team=Blue] if entity @e[tag=ctf_flag_red] run playsound block.note_block.banjo player @a[team=Red] ~ ~ ~ 1 0.1
-execute at @e[tag=ctf_flag_red] as @p[distance=..1,team=Blue] if entity @e[tag=ctf_flag_red] run tellraw @a [{"text": "Red flag has been picked up by ","color": "red"},{"selector":"@s","bold": true}]
-execute at @e[tag=ctf_flag_red] as @p[distance=..1,team=Blue] if entity @e[tag=ctf_flag_red] run item replace entity @p armor.head with red_banner{Enchantments:[{id:binding_curse,lvl:1}]}
-execute at @e[tag=ctf_flag_red] as @p[distance=..1,team=Blue] if entity @e[tag=ctf_flag_red] run kill @e[tag=ctf_flag_red]
+execute at @e[tag=ctf_flag_red] as @p[distance=..2,team=Blue] run playsound minecraft:block.composter.ready player @s
+execute at @e[tag=ctf_flag_red] as @p[distance=..2,team=Blue] run playsound block.note_block.banjo player @a[team=Red] ~ ~ ~ 1 0.1
+execute at @e[tag=ctf_flag_red] as @p[distance=..2,team=Blue] run tellraw @a [{"text": "Red flag has been picked up by ","color": "red"},{"selector":"@s","bold": true}]
+execute at @e[tag=ctf_flag_red] as @p[distance=..2,team=Blue] run item replace entity @p armor.head with red_banner{Enchantments:[{id:binding_curse,lvl:1}]}
+execute at @e[tag=ctf_flag_red] as @p[distance=..2,team=Blue] unless entity @e[tag=ctf_ghost_flag_red] run summon armor_stand ~ ~ ~ {Invisible:1b,Marker:1b,NoBasePlate:1b,Small:1b,Tags:["ctf_ghost_flag_red"],Team:armor_stand}
+execute at @e[tag=ctf_flag_red] as @p[distance=..2,team=Blue] run kill @e[tag=ctf_flag_red]
+
+# tp armor stand to flag carrier, such that if player dies, game knows where to drop the flag
+execute as @a[nbt={Inventory:[{id:"minecraft:red_banner"}]},team=Blue,scores={died=0},gamemode=adventure] at @s run tp @e[tag=ctf_ghost_flag_red] @s
 
 # show the carrier particles
 execute as @a[nbt={Inventory:[{id:"minecraft:red_banner"}]},team=Blue] at @s run particle dust 1 0 0 0.7 ~ ~1 ~ 0.4 0.2 0.4 1 5 force
@@ -76,7 +84,7 @@ execute as @a[nbt={Inventory:[{id:"minecraft:red_banner"}]},team=Blue] at @s if 
 # if player dies, drop the flag
 execute as @a[nbt={Inventory:[{id:"minecraft:red_banner"}]},scores={died=1..},team=Blue] run playsound entity.slime.attack player @a
 execute as @a[nbt={Inventory:[{id:"minecraft:red_banner"}]},scores={died=1..},team=Blue] run tellraw @a [{"text": "Red flag has been dropped by ", "color": "red"}, {"selector":"@s", "bold": true}]
-execute as @a[nbt={Inventory:[{id:"minecraft:red_banner"}]},scores={died=1..},team=Blue] at @s run summon armor_stand ~ ~ ~ {Invisible:1b,Marker:1b,NoBasePlate:1b,Small:1b,DisabledSlots:0,Tags:["ctf_flag_red","ctf_flag_on_floor"],Team:armor_stand,CustomNameVisible:1,ArmorItems:[{},{},{},{id:red_wool,Count:1}],ArmorDropChances:[0f,0f,0f,0f]}
+execute as @a[nbt={Inventory:[{id:"minecraft:red_banner"}]},scores={died=1..},team=Blue] at @e[tag=ctf_ghost_flag_red] run summon armor_stand ~ ~ ~ {Invisible:1b,Marker:1b,NoBasePlate:1b,Small:1b,DisabledSlots:0,Tags:["ctf_flag_red","ctf_flag_on_floor"],Team:armor_stand,CustomNameVisible:1,ArmorItems:[{},{},{},{id:red_wool,Count:1}],ArmorDropChances:[0f,0f,0f,0f]}
 execute as @a[nbt={Inventory:[{id:"minecraft:red_banner"}]},scores={died=1..},team=Blue] run item replace entity @s armor.head with air
 
 # if flag is dropped, let it decay
