@@ -24,6 +24,11 @@
         "carrot_on_a_stick",
         "carrot",
         "warped_fungus_on_a_stick",
-        "warped_fungus"
+        "warped_fungus",
+
+        "light_blue_wool",
+        "light_blue_banner",
+        "red_wool",
+        "red_banner"
     ]
 }

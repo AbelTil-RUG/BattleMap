@@ -1,16 +1,17 @@
 ## Death detection
-function game:kill_handlers/handle_death
+execute as @a[tag=in_arena] if predicate game:is_falling run effect give @s instant_damage 1 10
 
 function interface:tick
 
+function game:kill_handlers/handle_death
+
 ## Remove items and arrows
 kill @e[type=arrow,nbt={inGround:true}]
-kill @e[type=minecraft:item,tag=!do_not_kill,nbt=!{Item:{id:"minecraft:wheat_seeds"}}]
+kill @e[type=minecraft:item,tag=!do_not_kill]
 kill @e[type=tnt] 
 
 ## replant wheat
-execute as @e[type=item,nbt={Item:{id:"minecraft:wheat_seeds"}}] run data modify entity @s PickupDelay set value 0 
-execute as @a at @s if entity @s[nbt={Inventory:[{id:"minecraft:wheat_seeds"}]},gamemode=adventure] run function game:replant_wheat
+execute as @a[gamemode=adventure,tag=!in_arena] at @s if block ~ ~-1 ~ dirt if block ~ ~ ~ air run function game:replant_wheat
 
 function game:kill_handlers/handle_kill
 

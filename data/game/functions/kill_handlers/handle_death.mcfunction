@@ -1,5 +1,3 @@
-execute as @a[tag=in_arena] if predicate game:is_falling run effect give @s instant_damage 1 10
-
 execute as @a[tag=in_arena,scores={death_timer_ticks=1..}] run scoreboard players remove @s death_timer_ticks 1
 execute as @a[tag=in_arena,scores={death_timer_ticks=1..}] run scoreboard players operation @s death_timer_seconds = @s death_timer_ticks
 execute as @a[tag=in_arena,scores={death_timer_ticks=1..}] run scoreboard players operation @s death_timer_seconds /= twenty numbers

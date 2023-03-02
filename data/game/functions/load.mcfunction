@@ -18,7 +18,9 @@ team modify Lobby friendlyFire false
 scoreboard objectives add died deathCount
 scoreboard objectives add health health
 scoreboard objectives setdisplay belowName health
-execute unless score do_overwrite general_settings matches 0 run function game:load_default_settings
+
+
+function game:load_default_settings
 scoreboard objectives add kills playerKillCount
 scoreboard objectives add numbers dummy
 scoreboard players set twenty numbers 20

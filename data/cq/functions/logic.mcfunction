@@ -3,12 +3,12 @@
 ##################################################################################################################
 
 # calculate how many are in range
-execute at @e[tag=control_point,tag=control_point_a,tag=active] store result score a_red in_range if entity @e[team=Red,distance=..4]
-execute at @e[tag=control_point,tag=control_point_a,tag=active] store result score a_blue in_range if entity @e[team=Blue,distance=..4]
+execute at @e[tag=control_point,tag=control_point_a,tag=active] store result score a_red in_range if entity @e[team=Red,distance=..4,gamemode=adventure]
+execute at @e[tag=control_point,tag=control_point_a,tag=active] store result score a_blue in_range if entity @e[team=Blue,distance=..4,gamemode=adventure]
 
 # scout captures twice as fast
-execute at @e[tag=control_point,tag=control_point_a,tag=active] as @a[tag=scout,team=Red,distance=..4] run scoreboard players add a_red in_range 1
-execute at @e[tag=control_point,tag=control_point_a,tag=active] as @a[tag=scout,team=Blue,distance=..4] run scoreboard players add a_blue in_range 1
+execute at @e[tag=control_point,tag=control_point_a,tag=active] as @a[tag=scout,team=Red,distance=..4,gamemode=adventure] run scoreboard players add a_red in_range 1
+execute at @e[tag=control_point,tag=control_point_a,tag=active] as @a[tag=scout,team=Blue,distance=..4,gamemode=adventure] run scoreboard players add a_blue in_range 1
 
 # limit on how many players can effectively cap at the same time
 execute if score a_red in_range matches 3.. run scoreboard players set a_red in_range 3
@@ -55,12 +55,12 @@ execute at @e[tag=control_point_a,tag=active,tag=captured_red] if score point_a 
 ##################################################################################################################
 
 # calculate how many are in range
-execute at @e[tag=control_point,tag=control_point_b,tag=active] store result score b_red in_range if entity @e[team=Red,distance=..4]
-execute at @e[tag=control_point,tag=control_point_b,tag=active] store result score b_blue in_range if entity @e[team=Blue,distance=..4]
+execute at @e[tag=control_point,tag=control_point_b,tag=active] store result score b_red in_range if entity @e[team=Red,distance=..4,gamemode=adventure]
+execute at @e[tag=control_point,tag=control_point_b,tag=active] store result score b_blue in_range if entity @e[team=Blue,distance=..4,gamemode=adventure]
 
 # scout captures twice as fast
-execute at @e[tag=control_point,tag=control_point_b,tag=active] as @a[tag=scout,team=Red,distance=..4] run scoreboard players add b_red in_range 1
-execute at @e[tag=control_point,tag=control_point_b,tag=active] as @a[tag=scout,team=Blue,distance=..4] run scoreboard players add b_blue in_range 1
+execute at @e[tag=control_point,tag=control_point_b,tag=active] as @a[tag=scout,team=Red,distance=..4,gamemode=adventure] run scoreboard players add b_red in_range 1
+execute at @e[tag=control_point,tag=control_point_b,tag=active] as @a[tag=scout,team=Blue,distance=..4,gamemode=adventure] run scoreboard players add b_blue in_range 1
 
 # limit on how many players can effectively cap at the same time
 execute if score b_red in_range matches 3.. run scoreboard players set b_red in_range 3
@@ -105,12 +105,12 @@ execute at @e[tag=control_point_b,tag=active,tag=captured_red] if score point_b 
 ##################################################################################################################
 
 # calculate how many are in range
-execute at @e[tag=control_point,tag=control_point_c,tag=active] store result score c_red in_range if entity @e[team=Red,distance=..4]
-execute at @e[tag=control_point,tag=control_point_c,tag=active] store result score c_blue in_range if entity @e[team=Blue,distance=..4]
+execute at @e[tag=control_point,tag=control_point_c,tag=active] store result score c_red in_range if entity @e[team=Red,distance=..4,gamemode=adventure]
+execute at @e[tag=control_point,tag=control_point_c,tag=active] store result score c_blue in_range if entity @e[team=Blue,distance=..4,gamemode=adventure]
 
 # scout captures twice as fast
-execute at @e[tag=control_point,tag=control_point_c,tag=active] as @a[tag=scout,team=Red,distance=..4] run scoreboard players add c_red in_range 1
-execute at @e[tag=control_point,tag=control_point_c,tag=active] as @a[tag=scout,team=Blue,distance=..4] run scoreboard players add c_blue in_range 1
+execute at @e[tag=control_point,tag=control_point_c,tag=active] as @a[tag=scout,team=Red,distance=..4,gamemode=adventure] run scoreboard players add c_red in_range 1
+execute at @e[tag=control_point,tag=control_point_c,tag=active] as @a[tag=scout,team=Blue,distance=..4,gamemode=adventure] run scoreboard players add c_blue in_range 1
 
 # limit on how many players can effectively cap at the same time
 execute if score c_red in_range matches 3.. run scoreboard players set c_red in_range 3
