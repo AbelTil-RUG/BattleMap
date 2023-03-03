@@ -25,4 +25,5 @@ item replace entity @s[team=Red] armor.feet with leather_boots{Unbreakable:1,dis
 give @s stone_axe{Unbreakable:1}
 
 # add restockables
+scoreboard players operation @s bomber_bob_used = max_bobs kit_settings 
 scoreboard players set @s bomber_bob 0

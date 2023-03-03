@@ -3,7 +3,7 @@
 # give all friendly players in the area absorption and all enemies slow and blindness
 # 
 
-give @a[tag=tank,tag=in_arena,level=100..,nbt=!{Inventory:[{tag:{Tags:["ultimate_item"]}}]}] golden_apple{Tags:["ultimate_item"]}
+give @a[tag=tank,tag=in_arena,level=100..,nbt=!{Inventory:[{tag:{Tags:["ultimate_item"]}}]}] golden_apple{Tags:["ultimate_item","tank_ult"]}
 experience set @a[tag=tank,tag=in_arena,level=100..] 0 levels
 
 execute as @a[scores={used_golden_apple=1..}] at @s run effect give @s minecraft:absorption 600 2 true

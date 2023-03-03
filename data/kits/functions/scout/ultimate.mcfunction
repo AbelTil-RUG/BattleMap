@@ -1,4 +1,4 @@
-give @a[tag=scout,tag=in_arena,level=100..,nbt=!{Inventory:[{tag:{Tags:["ultimate_item"]}}]}] honey_bottle{Tags:["ultimate_item"]}
+give @a[tag=scout,tag=in_arena,level=100..,nbt=!{Inventory:[{tag:{Tags:["ultimate_item"]}}]}] honey_bottle{Tags:["ultimate_item","scout_ult"]}
 experience set @a[tag=scout,tag=in_arena,level=100..] 0 levels
 
 effect give @a[tag=scout,scores={used_honey_bottle=1..}] resistance 10 1 false

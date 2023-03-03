@@ -29,4 +29,5 @@ give @s bow{Unbreakable:1,Enchantments:[{id:power,lvl:1},{id:punch,lvl:1}]} 1
 # add attributes
 
 # add restockables
+scoreboard players operation @s archer_arrow_used = max_arrows kit_settings 
 scoreboard players set @s archer_arrow 0

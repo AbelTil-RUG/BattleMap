@@ -22,7 +22,9 @@ give @s warped_fungus_on_a_stick{Unbreakable:1} 1
 # add attributes
 
 # add restockables
+scoreboard players operation @s sniper_carrot_used = max_carrots kit_settings
 scoreboard players set @s sniper_carrot 0
+scoreboard players operation @s sniper_fungus_used = max_fungi kit_settings
 scoreboard players set @s sniper_fungus 0
 
 
